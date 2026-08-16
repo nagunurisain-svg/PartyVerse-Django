@@ -1,0 +1,487 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Poppins", sans-serif;
+    background: #080812;
+    color: white;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+
+/* ================================
+BACKGROUND
+================================ */
+
+.background-glow {
+    position: fixed;
+    width: 450px;
+    height: 450px;
+    border-radius: 50%;
+    filter: blur(130px);
+    opacity: 0.16;
+    pointer-events: none;
+    z-index: -1;
+}
+
+.glow-one {
+    background: #7c3aed;
+    top: -180px;
+    left: -150px;
+}
+
+.glow-two {
+    background: #ec4899;
+    right: -180px;
+    bottom: -180px;
+}
+
+
+/* ================================
+HEADER
+================================ */
+
+.game-header {
+    max-width: 1100px;
+    margin: auto;
+    padding: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    font-size: 20px;
+    font-weight: 800;
+}
+
+.round-info {
+    color: #858596;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.round-info span {
+    color: #b9a4ff;
+    margin-left: 4px;
+}
+
+.exit-button {
+    padding: 9px 15px;
+    border-radius: 9px;
+    border: 1px solid #29293c;
+    background: #11111d;
+    color: #858596;
+    font-family: inherit;
+    font-size: 11px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.exit-button:hover {
+    color: white;
+    background: #1a1a29;
+}
+
+
+/* ================================
+MAIN
+================================ */
+
+main {
+    min-height: calc(100vh - 80px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px 80px;
+}
+
+
+/* ================================
+GENERAL SCREEN
+================================ */
+
+.game-screen,
+.question-screen,
+.next-screen,
+.result-screen {
+    width: 100%;
+    max-width: 700px;
+    text-align: center;
+}
+
+.hidden {
+    display: none !important;
+}
+
+
+/* ================================
+PLAYER TURN
+================================ */
+
+.player-avatar {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 24px;
+    background: #151523;
+    border: 1px solid #303044;
+    font-size: 36px;
+}
+
+.eyebrow {
+    color: #a78bfa;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.game-screen h1 {
+    font-size: 48px;
+    margin-top: 8px;
+    letter-spacing: -2px;
+}
+
+.turn-subtitle {
+    color: #858596;
+    margin-top: 10px;
+    font-size: 14px;
+}
+
+
+/* ================================
+CHOICES
+================================ */
+
+.choice-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+    margin-top: 45px;
+}
+
+.choice-card {
+    position: relative;
+    min-height: 210px;
+    padding: 30px;
+    border-radius: 24px;
+    border: 1px solid #29293c;
+    background: #11111d;
+    color: white;
+    font-family: inherit;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: 0.35s;
+}
+
+.choice-card:hover {
+    transform: translateY(-7px);
+}
+
+.truth-choice:hover {
+    border-color: #8b5cf6;
+    box-shadow:
+        0 15px 50px
+        rgba(124, 58, 237, 0.18);
+}
+
+.dare-choice:hover {
+    border-color: #ec4899;
+    box-shadow:
+        0 15px 50px
+        rgba(236, 72, 153, 0.16);
+}
+
+.choice-icon {
+    font-size: 45px;
+    margin-bottom: 15px;
+}
+
+.choice-title {
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.choice-description {
+    color: #77778a;
+    font-size: 11px;
+    margin-top: 6px;
+}
+
+
+/* ================================
+QUESTION
+================================ */
+
+.question-type {
+    display: inline-block;
+    padding: 8px 15px;
+    border-radius: 30px;
+    background: #151523;
+    border: 1px solid #303044;
+    color: #b9a4ff;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+
+.question-category {
+    margin-top: 12px;
+    color: #66667a;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+}
+
+.question-card {
+    position: relative;
+    margin-top: 30px;
+    padding: 60px 45px;
+    border-radius: 25px;
+    border: 1px solid #29293c;
+    background: #11111d;
+    box-shadow:
+        0 20px 70px
+        rgba(0, 0, 0, 0.25);
+}
+
+.question-mark {
+    position: absolute;
+    top: 15px;
+    left: 25px;
+    color: #8b5cf6;
+    font-family: Georgia, serif;
+    font-size: 70px;
+    line-height: 1;
+}
+
+#questionText {
+    font-size: 22px;
+    line-height: 1.7;
+    font-weight: 500;
+}
+
+
+/* ================================
+ACTIONS
+================================ */
+
+.question-actions {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 25px;
+}
+
+.primary-action,
+.secondary-action {
+    padding: 14px 25px;
+    border-radius: 12px;
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.primary-action {
+    border: none;
+    background:
+        linear-gradient(
+            90deg,
+            #7c3aed,
+            #a855f7
+        );
+    color: white;
+}
+
+.primary-action:hover {
+    transform: translateY(-3px);
+    box-shadow:
+        0 12px 30px
+        rgba(124, 58, 237, 0.25);
+}
+
+.secondary-action {
+    border: 1px solid #303044;
+    background: #11111d;
+    color: #aaaabd;
+}
+
+.secondary-action:hover {
+    color: white;
+    background: #1a1a2a;
+}
+
+
+/* ================================
+NEXT PLAYER
+================================ */
+
+.next-icon {
+    font-size: 55px;
+    margin-bottom: 20px;
+}
+
+.next-screen h2,
+.result-screen h2 {
+    font-size: 38px;
+    margin-top: 8px;
+}
+
+.next-screen p,
+.result-screen p {
+    color: #858596;
+    margin-top: 12px;
+}
+
+.next-screen strong {
+    display: block;
+    color: #b9a4ff;
+    font-size: 22px;
+    margin-top: 5px;
+}
+
+.next-button {
+    margin-top: 30px;
+}
+
+
+/* ================================
+RESULTS
+================================ */
+
+.result-icon {
+    font-size: 70px;
+    margin-bottom: 20px;
+}
+
+.result-screen strong {
+    color: #b9a4ff;
+}
+
+.result-screen .secondary-action {
+    display: block;
+    margin: 12px auto 0;
+}
+
+
+/* ================================
+LANGUAGE SELECTOR
+================================ */
+
+.language-selector {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 4px;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.language-button {
+    border: none;
+    outline: none;
+    cursor: pointer;
+
+    padding: 8px 14px;
+    border-radius: 9px;
+
+    background: transparent;
+    color: #ffffff;
+
+    font-size: 13px;
+    font-weight: 600;
+
+    transition:
+        background 0.2s ease,
+        transform 0.2s ease,
+        opacity 0.2s ease;
+}
+
+.language-button:hover {
+    background: rgba(255, 255, 255, 0.12);
+    transform: translateY(-1px);
+}
+
+.language-button.active {
+    background: #ffffff;
+    color: #111111;
+}
+
+.language-button:active {
+    transform: scale(0.96);
+}
+
+
+/* ================================
+MOBILE
+================================ */
+
+@media (max-width: 650px) {
+
+    .game-header {
+        padding: 18px;
+    }
+
+    main {
+        padding-top: 25px;
+    }
+
+    .game-screen h1 {
+        font-size: 38px;
+    }
+
+    .choice-grid {
+        grid-template-columns: 1fr;
+        margin-top: 30px;
+    }
+
+    .choice-card {
+        min-height: 160px;
+    }
+
+    .question-card {
+        padding: 50px 25px;
+    }
+
+    #questionText {
+        font-size: 17px;
+    }
+
+    .question-actions {
+        flex-direction: column;
+    }
+
+    .primary-action,
+    .secondary-action {
+        width: 100%;
+    }
+
+
+    /* ================================
+       MOBILE LANGUAGE SELECTOR
+    ================================ */
+
+    .language-selector {
+        gap: 3px;
+        padding: 3px;
+    }
+
+    .language-button {
+        padding: 7px 9px;
+        font-size: 11px;
+    }
+}

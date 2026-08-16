@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>PartyVerse | Fun • Fantasy • Decisions</title>
+
+
+    <!-- Google Font -->
+
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+
+    <!-- Django Static -->
+
+    {% load static %}
+
+    <link
+        rel="stylesheet"
+        href="{% static 'game/css/style.css' %}">
+
+</head>
+
+
+<body>
+
+
+    <!-- ================================
+         BACKGROUND EFFECTS
+    ================================= -->
+
+    <div class="background-glow glow-one"></div>
+
+    <div class="background-glow glow-two"></div>
+
+
+
+    <!-- ================================
+         NAVBAR
+    ================================= -->
+
+    <header class="navbar">
+
+        <div class="logo">
+
+            <span>🎭</span>
+
+            PartyVerse
+
+        </div>
+
+
+        <nav>
+
+            <a href="#home">
+                Home
+            </a>
+
+            <a href="#games">
+                Games
+            </a>
+
+            <a href="#about">
+                About
+            </a>
+
+        </nav>
+
+    </header>
+
+
+
+    <!-- ================================
+         MAIN
+    ================================= -->
+
+    <main id="home">
+
+
+        <!-- ================================
+             HERO SECTION
+        ================================= -->
+
+        <section class="hero">
+
+
+            <div class="hero-badge">
+
+                ✨ THE ULTIMATE FRIENDS GAME
+
+            </div>
+
+
+            <h1>
+
+                Welcome to
+
+                <span>
+                    PartyVerse
+                </span>
+
+            </h1>
+
+
+            <p>
+
+                Play. Laugh. Challenge your friends.
+                Or let fate make the decision for you.
+
+            </p>
+
+
+            <div class="hero-buttons">
+
+
+                <a
+                    href="#games"
+                    class="primary-button">
+
+                    🎮 Start Playing
+
+                </a>
+
+
+                <a
+                    href="#about"
+                    class="secondary-button">
+
+                    ✨ Explore
+
+                </a>
+
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- ================================
+             GAMES SECTION
+        ================================= -->
+
+        <section
+            class="games-section"
+            id="games">
+
+
+            <div class="section-heading">
+
+
+                <span>
+                    CHOOSE YOUR EXPERIENCE
+                </span>
+
+
+                <h2>
+                    What are we playing?
+                </h2>
+
+
+                <p>
+                    Pick a game and let the fun begin.
+                </p>
+
+
+            </div>
+
+
+
+            <div class="game-grid">
+
+
+                <!-- ================================
+                     TRUTH OR DARE
+                ================================= -->
+
+                <div class="game-card truth-card">
+
+
+                    <div class="game-icon">
+                        🎭
+                    </div>
+
+
+                    <div class="game-content">
+
+
+                        <span class="game-label">
+                            MULTIPLAYER
+                        </span>
+
+
+                        <h3>
+                            Truth or Dare
+                        </h3>
+
+
+                        <p>
+
+                            Challenge your friends with
+                            hilarious truths, crazy dares
+                            and fantasy questions.
+
+                        </p>
+
+
+                        <!-- IMPORTANT:
+                             Django URL is connected here -->
+
+                        <a
+                            href="{% url 'truth_or_dare' %}"
+                            class="game-button">
+
+                            Play Now →
+
+                        </a>
+
+
+                    </div>
+
+
+                </div>
+
+                <!-- =================================
+     ONLINE MULTIPLAYER
+================================= -->
+
+<div class="game-card online-card">
+
+    <div class="game-icon">
+        🌐
+    </div>
+
+    <div class="game-content">
+
+        <span class="game-label">
+            MULTIPLAYER
+        </span>
+
+        <h3>
+            Online Play
+        </h3>
+
+        <p>
+            Create a room or join your friends
+            and play Truth or Dare together online.
+        </p>
+
+        <a
+            href="{% url 'online_play' %}"
+            class="game-button">
+
+            Play Online →
+
+        </a>
+
+    </div>
+
+</div>
+
+
+
+                <!-- ================================
+                     DECISION MAKER
+                ================================= -->
+
+                <div class="game-card decision-card">
+
+
+                    <div class="game-icon">
+                        🎲
+                    </div>
+
+
+                    <div class="game-content">
+
+
+                        <span class="game-label">
+                            DECISION TOOL
+                        </span>
+
+
+                        <h3>
+                            Decide for Me
+                        </h3>
+
+
+                        <p>
+
+                            Can't choose between multiple
+                            options? Put them in and let
+                            PartyVerse decide.
+
+                        </p>
+
+
+                        <!-- Django URL connected -->
+
+                        <a
+                            href="{% url 'decision_maker' %}"
+                            class="game-button">
+
+                            Make a Decision →
+
+                        </a>
+
+
+                    </div>
+
+
+                </div>
+
+
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- ================================
+             FEATURES SECTION
+        ================================= -->
+
+        <section
+            class="features"
+            id="about">
+
+
+            <div class="section-heading">
+
+
+                <span>
+                    WHY PARTYVERSE?
+                </span>
+
+
+                <h2>
+                    Built for fun
+                </h2>
+
+
+            </div>
+
+
+
+            <div class="feature-grid">
+
+
+                <!-- FEATURE 1 -->
+
+                <div class="feature">
+
+
+                    <div>
+                        👥
+                    </div>
+
+
+                    <h3>
+                        Play Together
+                    </h3>
+
+
+                    <p>
+
+                        Enjoy games with
+                        multiple players.
+
+                    </p>
+
+
+                </div>
+
+
+
+                <!-- FEATURE 2 -->
+
+                <div class="feature">
+
+
+                    <div>
+                        ✨
+                    </div>
+
+
+                    <h3>
+                        Endless Fun
+                    </h3>
+
+
+                    <p>
+
+                        Explore different categories
+                        and challenges.
+
+                    </p>
+
+
+                </div>
+
+
+
+                <!-- FEATURE 3 -->
+
+                <div class="feature">
+
+
+                    <div>
+                        🎲
+                    </div>
+
+
+                    <h3>
+                        Random Choices
+                    </h3>
+
+
+                    <p>
+
+                        When you can't decide,
+                        let fate choose.
+
+                    </p>
+
+
+                </div>
+
+
+
+                <!-- FEATURE 4 -->
+
+                <div class="feature">
+
+
+                    <div>
+                        🏆
+                    </div>
+
+
+                    <h3>
+                        Compete
+                    </h3>
+
+
+                    <p>
+
+                        Earn points and become
+                        the PartyVerse champion.
+
+                    </p>
+
+
+                </div>
+
+
+            </div>
+
+
+        </section>
+
+
+    </main>
+
+
+
+    <!-- ================================
+         FOOTER
+    ================================= -->
+
+    <footer>
+
+
+        <div class="logo">
+
+            <span>🎭</span>
+
+            PartyVerse
+
+        </div>
+
+
+        <p>
+
+            Made for friends, fun and
+            unforgettable moments.
+
+        </p>
+
+
+        <span>
+
+            © 2026 PartyVerse
+
+        </span>
+
+
+    </footer>
+
+
+</body>
+
+</html>

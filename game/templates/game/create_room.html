@@ -1,0 +1,110 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Create Room | PartyVerse</title>
+
+    <link
+        rel="stylesheet"
+        href="{% static 'game/online.css' %}">
+
+</head>
+
+<body>
+
+    <!-- BACKGROUND -->
+
+    <div class="background-glow glow-one"></div>
+    <div class="background-glow glow-two"></div>
+
+
+    <!-- HEADER -->
+
+    <header class="online-header">
+
+        <div class="logo">
+            🎭 PartyVerse
+        </div>
+
+        <a
+            href="{% url 'online_play' %}"
+            class="exit-button">
+
+            ← Back
+
+        </a>
+
+    </header>
+
+
+    <!-- MAIN -->
+
+    <main>
+
+        <section class="room-screen">
+
+            <div class="online-icon">
+                🏠
+            </div>
+
+            <div class="eyebrow">
+                CREATE ONLINE ROOM
+            </div>
+
+            <h1>
+                Create Your Game
+            </h1>
+
+            <p class="subtitle">
+                Enter your name and create a private room.
+            </p>
+
+
+            <!-- FORM -->
+
+            <form
+                method="POST"
+                class="room-form">
+
+                {% csrf_token %}
+
+
+                <label for="player_name">
+                    Your Name
+                </label>
+
+                <input
+                    type="text"
+                    id="player_name"
+                    name="player_name"
+                    class="room-input"
+                    placeholder="Enter your name"
+                    maxlength="50"
+                    required>
+
+
+                <button
+                    type="submit"
+                    class="primary-action">
+
+                    🎮 Create Room
+
+                </button>
+
+            </form>
+
+        </section>
+
+    </main>
+
+</body>
+
+</html>

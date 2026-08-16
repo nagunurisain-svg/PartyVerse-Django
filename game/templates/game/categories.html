@@ -1,0 +1,956 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Choose Categories | PartyVerse</title>
+
+
+    <!-- Google Font -->
+
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+
+    <!-- Django Static -->
+
+    {% load static %}
+
+    <link
+        rel="stylesheet"
+        href="{% static 'game/css/categories.css' %}">
+
+</head>
+
+
+<body>
+
+
+    <!-- ================================
+         BACKGROUND
+    ================================= -->
+
+    <div class="background-glow glow-one"></div>
+
+    <div class="background-glow glow-two"></div>
+
+
+
+    <!-- ================================
+         HEADER
+    ================================= -->
+
+    <header class="game-header">
+
+
+        <a
+            href="{% url 'truth_or_dare' %}"
+            class="back-button">
+
+            ← Players
+
+        </a>
+
+
+        <div class="logo">
+
+            🎭 PartyVerse
+
+        </div>
+
+
+        <div class="step-indicator">
+
+            STEP 2 / 4
+
+        </div>
+
+
+    </header>
+
+
+
+    <!-- ================================
+         MAIN
+    ================================= -->
+
+    <main>
+
+
+        <section class="category-container">
+
+
+            <!-- ICON -->
+
+            <div class="category-icon">
+
+                ✨
+
+            </div>
+
+
+
+            <!-- TITLE -->
+
+            <span class="eyebrow">
+
+                TRUTH OR DARE
+
+            </span>
+
+
+            <h1>
+
+                Choose your vibe
+
+            </h1>
+
+
+            <p class="subtitle">
+
+                Select the categories you want
+                to include in your game.
+
+            </p>
+
+
+
+            <!-- ================================
+                 SELECTION HEADER
+            ================================= -->
+
+            <div class="selection-header">
+
+
+                <span id="selectedCount">
+
+                    0 categories selected
+
+                </span>
+
+
+                <button
+                    type="button"
+                    id="selectAllButton">
+
+                    Select All
+
+                </button>
+
+
+            </div>
+
+
+
+            <!-- ================================
+                 CATEGORY GRID
+            ================================= -->
+
+            <div
+                class="category-grid"
+                id="categoryGrid">
+
+
+                <!-- FUNNY -->
+
+                <button
+                    type="button"
+                    class="category-card"
+                    data-category="funny">
+
+
+                    <span class="category-emoji">
+
+                        😂
+
+                    </span>
+
+
+                    <span class="category-name">
+
+                        Funny
+
+                    </span>
+
+
+                    <span class="category-description">
+
+                        Laugh-out-loud questions
+
+                    </span>
+
+
+                    <span class="check">
+
+                        ✓
+
+                    </span>
+
+
+                </button>
+
+
+
+                <!-- FANTASY -->
+
+                <button
+                    type="button"
+                    class="category-card"
+                    data-category="fantasy">
+
+
+                    <span class="category-emoji">
+
+                        🪄
+
+                    </span>
+
+
+                    <span class="category-name">
+
+                        Fantasy
+
+                    </span>
+
+
+                    <span class="category-description">
+
+                        Magic, powers & imagination
+
+                    </span>
+
+
+                    <span class="check">
+
+                        ✓
+
+                    </span>
+
+
+                </button>
+
+
+
+                <!-- CRAZY -->
+
+                <button
+                    type="button"
+                    class="category-card"
+                    data-category="crazy">
+
+
+                    <span class="category-emoji">
+
+                        🤪
+
+                    </span>
+
+
+                    <span class="category-name">
+
+                        Crazy
+
+                    </span>
+
+
+                    <span class="category-description">
+
+                        Wild and unexpected
+
+                    </span>
+
+
+                    <span class="check">
+
+                        ✓
+
+                    </span>
+
+
+                </button>
+
+
+
+                <!-- FRIENDSHIP -->
+
+                <button
+                    type="button"
+                    class="category-card"
+                    data-category="friendship">
+
+
+                    <span class="category-emoji">
+
+                        ❤️
+
+                    </span>
+
+
+                    <span class="category-name">
+
+                        Friendship
+
+                    </span>
+
+
+                    <span class="category-description">
+
+                        Friends, memories & bonds
+
+                    </span>
+
+
+                    <span class="check">
+
+                        ✓
+
+                    </span>
+
+
+                </button>
+
+
+
+                <!-- DEEP -->
+
+                <button
+                    type="button"
+                    class="category-card"
+                    data-category="deep">
+
+
+                    <span class="category-emoji">
+
+                        🧠
+
+                    </span>
+
+
+                    <span class="category-name">
+
+                        Deep
+
+                    </span>
+
+
+                    <span class="category-description">
+
+                        Thought-provoking questions
+
+                    </span>
+
+
+                    <span class="check">
+
+                        ✓
+
+                    </span>
+
+
+                </button>
+
+
+
+                <!-- HORROR -->
+
+                <button
+                    type="button"
+                    class="category-card"
+                    data-category="horror">
+
+
+                    <span class="category-emoji">
+
+                        👻
+
+                    </span>
+
+
+                    <span class="category-name">
+
+                        Horror
+
+                    </span>
+
+
+                    <span class="category-description">
+
+                        Spooky and mysterious
+
+                    </span>
+
+
+                    <span class="check">
+
+                        ✓
+
+                    </span>
+
+
+                </button>
+
+
+
+                <!-- MOVIES -->
+
+                <button
+                    type="button"
+                    class="category-card"
+                    data-category="movies">
+
+
+                    <span class="category-emoji">
+
+                        🎬
+
+                    </span>
+
+
+                    <span class="category-name">
+
+                        Movies
+
+                    </span>
+
+
+                    <span class="category-description">
+
+                        Cinema, characters & scenes
+
+                    </span>
+
+
+                    <span class="check">
+
+                        ✓
+
+                    </span>
+
+
+                </button>
+
+
+
+                <!-- MUSIC -->
+
+                <button
+                    type="button"
+                    class="category-card"
+                    data-category="music">
+
+
+                    <span class="category-emoji">
+
+                        🎵
+
+                    </span>
+
+
+                    <span class="category-name">
+
+                        Music
+
+                    </span>
+
+
+                    <span class="category-description">
+
+                        Songs, artists & challenges
+
+                    </span>
+
+
+                    <span class="check">
+
+                        ✓
+
+                    </span>
+
+
+                </button>
+
+
+
+                <!-- SCHOOL / COLLEGE -->
+
+                <button
+                    type="button"
+                    class="category-card"
+                    data-category="school">
+
+
+                    <span class="category-emoji">
+
+                        🏫
+
+                    </span>
+
+
+                    <span class="category-name">
+
+                        School / College
+
+                    </span>
+
+
+                    <span class="category-description">
+
+                        Classrooms, friends & memories
+
+                    </span>
+
+
+                    <span class="check">
+
+                        ✓
+
+                    </span>
+
+
+                </button>
+
+
+
+                <!-- RANDOM -->
+
+                <button
+                    type="button"
+                    class="category-card"
+                    data-category="random">
+
+
+                    <span class="category-emoji">
+
+                        🎲
+
+                    </span>
+
+
+                    <span class="category-name">
+
+                        Random
+
+                    </span>
+
+
+                    <span class="category-description">
+
+                        Anything can happen
+
+                    </span>
+
+
+                    <span class="check">
+
+                        ✓
+
+                    </span>
+
+
+                </button>
+
+
+            </div>
+
+
+
+            <!-- ================================
+                 CONTINUE BUTTON
+            ================================= -->
+
+            <button
+                type="button"
+                id="startGameButton"
+                class="start-game-button"
+                disabled>
+
+                Continue
+
+                <span>
+
+                    →
+
+                </span>
+
+            </button>
+
+
+        </section>
+
+
+    </main>
+
+
+
+    <!-- ================================
+         JAVASCRIPT
+    ================================= -->
+
+    <script>
+
+
+        /*
+        =========================================
+        ELEMENTS
+        =========================================
+        */
+
+        const categoryCards =
+            document.querySelectorAll(
+                ".category-card"
+            );
+
+
+        const selectedCount =
+            document.getElementById(
+                "selectedCount"
+            );
+
+
+        const selectAllButton =
+            document.getElementById(
+                "selectAllButton"
+            );
+
+
+        const startGameButton =
+            document.getElementById(
+                "startGameButton"
+            );
+
+
+
+        /*
+        =========================================
+        CATEGORY DATA
+        =========================================
+        */
+
+        let selectedCategories = [];
+
+
+
+        /*
+        =========================================
+        UPDATE SCREEN
+        =========================================
+        */
+
+        function updateSelection() {
+
+
+            const count =
+                selectedCategories.length;
+
+
+            /*
+            Update selected count
+            */
+
+            if (count === 0) {
+
+                selectedCount.textContent =
+                    "0 categories selected";
+
+            }
+
+            else if (count === 1) {
+
+                selectedCount.textContent =
+                    "1 category selected";
+
+            }
+
+            else {
+
+                selectedCount.textContent =
+                    `${count} categories selected`;
+
+            }
+
+
+
+            /*
+            Enable Continue
+            */
+
+            startGameButton.disabled =
+                count === 0;
+
+
+
+            /*
+            Select All / Clear All
+            */
+
+            if (
+                count === categoryCards.length
+            ) {
+
+                selectAllButton.textContent =
+                    "Clear All";
+
+            }
+
+            else {
+
+                selectAllButton.textContent =
+                    "Select All";
+
+            }
+
+        }
+
+
+
+        /*
+        =========================================
+        CATEGORY CLICK
+        =========================================
+        */
+
+        categoryCards.forEach(card => {
+
+
+            card.addEventListener(
+                "click",
+                function() {
+
+
+                    const category =
+                        this.dataset.category;
+
+
+                    /*
+                    Remove category
+                    */
+
+                    if (
+                        selectedCategories.includes(
+                            category
+                        )
+                    ) {
+
+
+                        selectedCategories =
+                            selectedCategories.filter(
+                                item =>
+                                    item !== category
+                            );
+
+
+                        this.classList.remove(
+                            "selected"
+                        );
+
+                    }
+
+
+                    /*
+                    Add category
+                    */
+
+                    else {
+
+
+                        selectedCategories.push(
+                            category
+                        );
+
+
+                        this.classList.add(
+                            "selected"
+                        );
+
+                    }
+
+
+                    updateSelection();
+
+                }
+            );
+
+        });
+
+
+
+        /*
+        =========================================
+        SELECT ALL / CLEAR ALL
+        =========================================
+        */
+
+        selectAllButton.addEventListener(
+            "click",
+            function() {
+
+
+                /*
+                Clear all
+                */
+
+                if (
+                    selectedCategories.length ===
+                    categoryCards.length
+                ) {
+
+
+                    selectedCategories = [];
+
+
+                    categoryCards.forEach(
+                        card => {
+
+                            card.classList.remove(
+                                "selected"
+                            );
+
+                        }
+                    );
+
+                }
+
+
+                /*
+                Select all
+                */
+
+                else {
+
+
+                    selectedCategories = [];
+
+
+                    categoryCards.forEach(
+                        card => {
+
+
+                            selectedCategories.push(
+                                card.dataset.category
+                            );
+
+
+                            card.classList.add(
+                                "selected"
+                            );
+
+                        }
+                    );
+
+                }
+
+
+                updateSelection();
+
+            }
+        );
+
+
+
+        /*
+        =========================================
+        CONTINUE TO DIFFICULTY
+        =========================================
+        */
+
+        startGameButton.addEventListener(
+            "click",
+            function() {
+
+
+                /*
+                Make sure at least
+                one category is selected.
+                */
+
+                if (
+                    selectedCategories.length === 0
+                ) {
+
+                    return;
+
+                }
+
+
+
+                /*
+                Check players.
+                */
+
+                const savedPlayers =
+                    sessionStorage.getItem(
+                        "partyverse_players"
+                    );
+
+
+                if (!savedPlayers) {
+
+
+                    alert(
+                        "Players were not found. Please add players again."
+                    );
+
+
+                    window.location.href =
+                        "{% url 'truth_or_dare' %}";
+
+
+                    return;
+
+                }
+
+
+
+                /*
+                Save selected categories.
+                */
+
+                sessionStorage.setItem(
+                    "partyverse_categories",
+                    JSON.stringify(
+                        selectedCategories
+                    )
+                );
+
+
+
+                /*
+                Go to Difficulty page.
+                */
+
+                window.location.href =
+                    "{% url 'difficulty' %}";
+
+            }
+        );
+
+
+
+        /*
+        =========================================
+        INITIALIZE
+        =========================================
+        */
+
+        updateSelection();
+
+
+    </script>
+
+
+</body>
+
+</html>

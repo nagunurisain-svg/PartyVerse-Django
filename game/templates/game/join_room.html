@@ -1,0 +1,228 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>Join Room | PartyVerse</title>
+
+    <link
+        rel="stylesheet"
+        href="{% static 'game/online.css' %}">
+
+</head>
+
+
+<body>
+
+
+    <!-- ================================
+         BACKGROUND
+    ================================= -->
+
+    <div class="background-glow glow-one"></div>
+
+    <div class="background-glow glow-two"></div>
+
+
+
+    <!-- ================================
+         HEADER
+    ================================= -->
+
+    <header class="online-header">
+
+        <div class="logo">
+
+            🎭 PartyVerse
+
+        </div>
+
+
+        <a
+            href="{% url 'online_play' %}"
+            class="exit-button">
+
+            ← Back
+
+        </a>
+
+    </header>
+
+
+
+    <!-- ================================
+         MAIN
+    ================================= -->
+
+    <main>
+
+        <section class="room-screen">
+
+
+            <!-- ICON -->
+
+            <div class="online-icon">
+
+                🔗
+
+            </div>
+
+
+            <!-- TITLE -->
+
+            <div class="eyebrow">
+
+                JOIN ONLINE ROOM
+
+            </div>
+
+
+            <h1>
+
+                Join Your Friends
+
+            </h1>
+
+
+            <p class="subtitle">
+
+                Enter your name and the room code
+                shared by your friend.
+
+            </p>
+
+
+
+            <!-- ================================
+                 ERROR MESSAGE
+            ================================= -->
+
+            {% if error %}
+
+                <div class="error-message">
+
+                    {{ error }}
+
+                </div>
+
+            {% endif %}
+
+
+
+            <!-- ================================
+                 JOIN FORM
+            ================================= -->
+
+            <form
+                method="POST"
+                class="room-form">
+
+                {% csrf_token %}
+
+
+                <!-- PLAYER NAME -->
+
+                <label
+                    for="player_name">
+
+                    Your Name
+
+                </label>
+
+
+                <input
+                    type="text"
+                    id="player_name"
+                    name="player_name"
+                    class="room-input"
+                    placeholder="Enter your name"
+                    maxlength="50"
+                    autocomplete="off"
+                    required>
+
+
+
+                <!-- ROOM CODE -->
+
+                <label
+                    for="room_code">
+
+                    Room Code
+
+                </label>
+
+
+                <input
+                    type="text"
+                    id="room_code"
+                    name="room_code"
+                    class="room-input room-code-input"
+                    placeholder="Example: A7K29P"
+                    maxlength="6"
+                    minlength="6"
+                    autocomplete="off"
+                    required>
+
+
+
+                <!-- SUBMIT -->
+
+                <button
+                    type="submit"
+                    class="primary-action">
+
+                    🔗 Join Room
+
+                </button>
+
+            </form>
+
+
+        </section>
+
+    </main>
+
+
+
+    <!-- ================================
+         ROOM CODE SCRIPT
+    ================================= -->
+
+    <script>
+
+        const roomCodeInput =
+            document.getElementById(
+                "room_code"
+            );
+
+
+        roomCodeInput.addEventListener(
+            "input",
+            function () {
+
+                this.value =
+                    this.value
+                        .toUpperCase()
+                        .replace(
+                            /[^A-Z0-9]/g,
+                            ""
+                        )
+                        .slice(0, 6);
+
+            }
+        );
+
+    </script>
+
+
+</body>
+
+</html>

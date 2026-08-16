@@ -1,0 +1,1284 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Truth or Dare | PartyVerse</title>
+
+    {% load static %}
+
+    <link rel="stylesheet"
+          href="{% static 'game/css/game.css' %}">
+
+</head>
+
+
+<body>
+
+
+    <!-- ================================
+         BACKGROUND
+    ================================= -->
+
+    <div class="background-glow glow-one"></div>
+
+    <div class="background-glow glow-two"></div>
+
+
+
+    <!-- ================================
+         HEADER
+    ================================= -->
+
+    <header class="game-header">
+
+    <div class="logo">
+        🎭 PartyVerse
+    </div>
+
+    <div class="round-info">
+        ROUND
+        <span id="roundNumber">
+            1
+        </span>
+    </div>
+
+    <div class="language-selector">
+
+        <button
+            type="button"
+            id="englishButton"
+            class="language-button active">
+            English
+        </button>
+
+        <button
+            type="button"
+            id="teluguButton"
+            class="language-button">
+            తెలుగు
+        </button>
+
+    </div>
+
+    <button
+        type="button"
+        id="exitButton"
+        class="exit-button">
+        Exit
+    </button>
+
+</header>
+
+
+    <!-- ================================
+         MAIN GAME
+    ================================= -->
+
+    <main>
+
+
+        <!-- PLAYER TURN -->
+
+        <section
+            id="turnScreen"
+            class="game-screen">
+
+
+            <div class="player-avatar">
+
+                👤
+
+            </div>
+
+
+            <span class="eyebrow">
+
+                YOUR TURN
+
+            </span>
+
+
+            <h1 id="playerName">
+
+                Player
+
+            </h1>
+
+
+            <p class="turn-subtitle">
+
+                What do you choose?
+
+            </p>
+
+
+
+            <!-- TRUTH / DARE -->
+
+            <div class="choice-grid">
+
+
+                <button
+                    type="button"
+                    id="truthButton"
+                    class="choice-card truth-choice">
+
+
+                    <span class="choice-icon">
+                        💬
+                    </span>
+
+
+                    <span class="choice-title">
+                        Truth
+                    </span>
+
+
+                    <span class="choice-description">
+                        Answer honestly
+                    </span>
+
+
+                </button>
+
+
+
+                <button
+                    type="button"
+                    id="dareButton"
+                    class="choice-card dare-choice">
+
+
+                    <span class="choice-icon">
+                        🔥
+                    </span>
+
+
+                    <span class="choice-title">
+                        Dare
+                    </span>
+
+
+                    <span class="choice-description">
+                        Accept the challenge
+                    </span>
+
+
+                </button>
+
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- ================================
+             QUESTION SCREEN
+        ================================= -->
+
+        <section
+            id="questionScreen"
+            class="question-screen hidden">
+
+
+            <div
+                id="questionType"
+                class="question-type">
+
+                TRUTH
+
+            </div>
+
+
+            <div
+                id="questionCategory"
+                class="question-category">
+
+                FUNNY
+
+            </div>
+
+
+            <div class="question-card">
+
+
+                <div class="question-mark">
+                    “
+                </div>
+
+
+                <p id="questionText">
+
+                    Your question will appear here.
+
+                </p>
+
+
+            </div>
+
+
+
+            <!-- ACTIONS -->
+
+            <div class="question-actions">
+
+
+                <button
+                    type="button"
+                    id="skipButton"
+                    class="secondary-action">
+
+                    ↻ Skip
+
+                </button>
+
+
+                <button
+                    type="button"
+                    id="doneButton"
+                    class="primary-action">
+
+                    ✓ Done
+
+                </button>
+
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- ================================
+             NEXT PLAYER
+        ================================= -->
+
+        <section
+            id="nextScreen"
+            class="next-screen hidden">
+
+
+            <div class="next-icon">
+
+                🎉
+
+            </div>
+
+
+            <span class="eyebrow">
+
+                NICE!
+
+            </span>
+
+
+            <h2>
+
+                Turn complete
+
+            </h2>
+
+
+            <p>
+
+                Pass the device to
+
+            </p>
+
+
+            <strong id="nextPlayerName">
+
+                Next Player
+
+            </strong>
+
+
+            <button
+                type="button"
+                id="nextButton"
+                class="primary-action next-button">
+
+                Next Player →
+
+            </button>
+
+
+        </section>
+
+
+
+        <!-- ================================
+             RESULT SCREEN
+        ================================= -->
+
+        <section
+            id="resultScreen"
+            class="result-screen hidden">
+
+
+            <div class="result-icon">
+
+                🏆
+
+            </div>
+
+
+            <span class="eyebrow">
+
+                GAME COMPLETE
+
+            </span>
+
+
+            <h2>
+
+                Great game!
+
+            </h2>
+
+
+            <p>
+
+                You completed
+
+                <strong id="completedRounds">
+                    0
+                </strong>
+
+                rounds.
+
+            </p>
+
+
+            <button
+                type="button"
+                id="playAgainButton"
+                class="primary-action">
+
+                Play Again
+
+            </button>
+
+
+            <button
+                type="button"
+                id="homeButton"
+                class="secondary-action">
+
+                Back to Home
+
+            </button>
+
+
+        </section>
+
+
+    </main>
+
+
+
+    <!-- ================================
+         JAVASCRIPT
+    ================================= -->
+
+    <script>
+
+
+        /*
+        =========================================
+        GAME DATA
+        =========================================
+        */
+
+
+        let players = [];
+
+        let categories = [];
+
+        let difficulty = "mixed";
+
+        let currentPlayerIndex = 0;
+
+        let currentQuestion = null;
+
+        let currentLanguage = "english";
+
+        let roundNumber = 1;
+
+        let completedRounds = 0;
+
+        let usedQuestions = [];
+
+
+
+     /*
+=========================================
+GET SAVED DATA
+=========================================
+*/
+
+const savedPlayers =
+    sessionStorage.getItem(
+        "partyverse_players"
+    );
+
+
+const savedCategories =
+    sessionStorage.getItem(
+        "partyverse_categories"
+    );
+
+
+const savedDifficulty =
+    sessionStorage.getItem(
+        "partyverse_difficulty"
+    );
+
+
+
+/*
+=========================================
+CHECK PLAYERS
+=========================================
+*/
+
+if (savedPlayers) {
+
+    players =
+        JSON.parse(savedPlayers);
+
+}
+
+
+
+/*
+=========================================
+CHECK CATEGORIES
+=========================================
+*/
+
+if (savedCategories) {
+
+    categories =
+        JSON.parse(savedCategories);
+
+}
+
+
+
+/*
+=========================================
+CHECK DIFFICULTY
+=========================================
+*/
+
+if (savedDifficulty) {
+
+    difficulty =
+        savedDifficulty;
+
+}
+
+
+
+/*
+=========================================
+IF DATA IS MISSING
+=========================================
+*/
+
+if (
+    players.length < 2 ||
+    categories.length === 0 ||
+    !difficulty
+) {
+
+    alert(
+        "Game information is missing. Please start again."
+    );
+
+    window.location.href =
+        "{% url 'truth_or_dare' %}";
+
+}
+
+
+
+/*
+=========================================
+ELEMENTS
+=========================================
+*/
+
+const turnScreen =
+    document.getElementById(
+        "turnScreen"
+    );
+
+
+const questionScreen =
+    document.getElementById(
+        "questionScreen"
+    );
+
+
+const nextScreen =
+    document.getElementById(
+        "nextScreen"
+    );
+
+
+        const resultScreen =
+            document.getElementById(
+                "resultScreen"
+            );
+
+
+        const playerName =
+            document.getElementById(
+                "playerName"
+            );
+
+
+        const nextPlayerName =
+            document.getElementById(
+                "nextPlayerName"
+            );
+
+
+        const roundNumberElement =
+            document.getElementById(
+                "roundNumber"
+            );
+
+
+        const questionType =
+            document.getElementById(
+                "questionType"
+            );
+
+
+        const questionCategory =
+            document.getElementById(
+                "questionCategory"
+            );
+
+
+        const questionText =
+            document.getElementById(
+                "questionText"
+            );
+
+
+        const completedRoundsElement =
+            document.getElementById(
+                "completedRounds"
+            );
+
+
+
+        /*
+        =========================================
+        SHOW PLAYER TURN
+        =========================================
+        */
+
+
+        function showPlayerTurn() {
+
+
+            hideAllScreens();
+
+
+            turnScreen.classList.remove(
+                "hidden"
+            );
+
+
+            playerName.textContent =
+                players[currentPlayerIndex];
+
+
+            roundNumberElement.textContent =
+                roundNumber;
+
+        }
+
+
+
+        /*
+        =========================================
+        HIDE ALL SCREENS
+        =========================================
+        */
+
+
+        function hideAllScreens() {
+
+
+            turnScreen.classList.add(
+                "hidden"
+            );
+
+
+            questionScreen.classList.add(
+                "hidden"
+            );
+
+
+            nextScreen.classList.add(
+                "hidden"
+            );
+
+
+            resultScreen.classList.add(
+                "hidden"
+            );
+
+        }
+
+
+/*
+=========================================
+SHOW QUESTION
+=========================================
+*/
+
+async function showQuestion(type) {
+
+    try {
+
+        /*
+        =========================================
+        GET QUESTIONS FROM DJANGO
+        =========================================
+        */
+
+        let allQuestions = [];
+
+
+        /*
+        =========================================
+        LOAD QUESTIONS FOR EACH SELECTED CATEGORY
+        =========================================
+        */
+
+        for (const category of categories) {
+
+          let apiUrl =
+    `/api/questions/?type=${encodeURIComponent(type)}` +
+    `&categories=${encodeURIComponent(category)}`;
+
+            /*
+            =========================================
+            DIFFICULTY
+            =========================================
+            */
+
+            if (
+                difficulty &&
+                difficulty !== "mixed"
+            ) {
+
+                apiUrl +=
+                    `&difficulty=${encodeURIComponent(difficulty)}`;
+
+            }
+
+
+            /*
+            =========================================
+            FETCH
+            =========================================
+            */
+
+            const response =
+                await fetch(apiUrl);
+
+
+            if (!response.ok) {
+
+                throw new Error(
+                    "Unable to load questions. Server returned " +
+                    response.status
+                );
+
+            }
+
+
+            /*
+            =========================================
+            JSON
+            =========================================
+            */
+
+            const data =
+                await response.json();
+
+
+            if (data.questions) {
+
+                allQuestions =
+                    allQuestions.concat(
+                        data.questions
+                    );
+
+            }
+
+        }
+
+
+        /*
+        =========================================
+        CHECK QUESTIONS
+        =========================================
+        */
+
+        if (
+            allQuestions.length === 0
+        ) {
+
+            alert(
+                "No questions are available for the selected categories and difficulty."
+            );
+
+            return;
+
+        }
+
+
+        /*
+        =========================================
+        REMOVE USED QUESTIONS
+        =========================================
+        */
+
+        let availableQuestions =
+            allQuestions.filter(
+                question =>
+                    !usedQuestions.includes(
+                        question.id
+                    )
+            );
+
+
+        /*
+        =========================================
+        RESET WHEN ALL ARE USED
+        =========================================
+        */
+
+        if (
+            availableQuestions.length === 0
+        ) {
+
+            usedQuestions = [];
+
+            availableQuestions =
+                allQuestions;
+
+        }
+
+
+        /*
+        =========================================
+        RANDOM QUESTION
+        =========================================
+        */
+
+        const randomIndex =
+            Math.floor(
+                Math.random() *
+                availableQuestions.length
+            );
+
+
+        currentQuestion =
+            availableQuestions[
+                randomIndex
+            ];
+
+
+        /*
+        =========================================
+        REMEMBER QUESTION
+        =========================================
+        */
+
+        usedQuestions.push(
+            currentQuestion.id
+        );
+
+
+        /*
+        =========================================
+        DISPLAY TYPE
+        =========================================
+        */
+
+        questionType.textContent =
+            type.toUpperCase();
+
+
+        /*
+        =========================================
+        DISPLAY CATEGORY
+        =========================================
+        */
+
+        questionCategory.textContent =
+            currentQuestion.category
+                .replace("-", " ")
+                .toUpperCase();
+
+
+        /*
+        =========================================
+        DISPLAY QUESTION
+        =========================================
+        */
+
+        if (
+            currentLanguage === "english"
+        ) {
+
+            questionText.textContent =
+                currentQuestion.text;
+
+        } else {
+
+            questionText.textContent =
+                "Translating...";
+
+            await translateQuestionToTelugu(
+                currentQuestion.text
+            );
+
+        }
+
+
+        /*
+        =========================================
+        SHOW QUESTION SCREEN
+        =========================================
+        */
+
+        hideAllScreens();
+
+        questionScreen.classList.remove(
+            "hidden"
+        );
+
+
+    } catch (error) {
+
+        console.error(
+            "Question loading error:",
+            error
+        );
+
+        alert(
+            "Question loading error: " +
+            error.message
+        );
+
+    }
+}
+
+
+/*
+=========================================
+TRUTH BUTTON
+=========================================
+*/
+
+document
+    .getElementById("truthButton")
+    .addEventListener(
+        "click",
+        function() {
+
+            showQuestion("truth");
+
+        }
+    );
+
+
+/*
+=========================================
+DARE BUTTON
+=========================================
+*/
+
+document
+    .getElementById("dareButton")
+    .addEventListener(
+        "click",
+        function() {
+
+            showQuestion("dare");
+
+        }
+    );
+
+
+
+
+
+        /*
+        =========================================
+        DONE BUTTON
+        =========================================
+        */
+
+
+        document
+            .getElementById("doneButton")
+            .addEventListener(
+                "click",
+                function() {
+
+                    completeTurn();
+
+                }
+            );
+
+
+
+        /*
+        =========================================
+        SKIP BUTTON
+        =========================================
+        */
+
+
+        document
+            .getElementById("skipButton")
+            .addEventListener(
+                "click",
+                function() {
+
+                    if (currentQuestion) {
+
+                        usedQuestions =
+                            usedQuestions.filter(
+                                questionId =>
+                                    questionId !==
+                                    currentQuestion.id
+                            );
+
+                    }
+
+
+                    /*
+                    Show the same type
+                    with another question.
+                    */
+
+                    const type =
+                        questionType.textContent
+                            .toLowerCase();
+
+
+                    showQuestion(type);
+
+                }
+            );
+
+
+
+        /*
+        =========================================
+        COMPLETE TURN
+        =========================================
+        */
+
+
+        function completeTurn() {
+
+
+            completedRounds++;
+
+
+            /*
+            Move to next player.
+            */
+
+            currentPlayerIndex++;
+
+
+            /*
+            If all players completed
+            their turn, start next round.
+            */
+
+            if (
+                currentPlayerIndex >=
+                players.length
+            ) {
+
+                currentPlayerIndex = 0;
+
+                roundNumber++;
+
+            }
+
+
+            /*
+            Set next player.
+            */
+
+            nextPlayerName.textContent =
+                players[currentPlayerIndex];
+
+
+            hideAllScreens();
+
+
+            nextScreen.classList.remove(
+                "hidden"
+            );
+
+        }
+
+
+
+        /*
+        =========================================
+        NEXT PLAYER BUTTON
+        =========================================
+        */
+
+
+        document
+            .getElementById("nextButton")
+            .addEventListener(
+                "click",
+                function() {
+
+                    showPlayerTurn();
+
+                }
+            );
+
+
+
+        /*
+        =========================================
+        EXIT
+        =========================================
+        */
+
+
+        document
+            .getElementById("exitButton")
+            .addEventListener(
+                "click",
+                function() {
+
+
+                    const confirmExit =
+                        confirm(
+                            "Are you sure you want to exit the game?"
+                        );
+
+
+                    if (confirmExit) {
+
+                        window.location.href =
+                            "{% url 'home' %}";
+
+                    }
+
+                }
+            );
+
+
+
+        /*
+        =========================================
+        PLAY AGAIN
+        =========================================
+        */
+
+
+        document
+            .getElementById("playAgainButton")
+            .addEventListener(
+                "click",
+                function() {
+
+                    location.reload();
+
+                }
+            );
+
+
+
+        /*
+        =========================================
+        HOME
+        =========================================
+        */
+
+
+        document
+            .getElementById("homeButton")
+            .addEventListener(
+                "click",
+                function() {
+
+                    window.location.href =
+                        "{% url 'home' %}";
+
+                }
+            );
+
+
+
+      /*
+=========================================
+START GAME
+=========================================
+*/
+
+showPlayerTurn();
+
+
+// =========================================
+// TRANSLATE QUESTION TO TELUGU
+// =========================================
+
+async function translateQuestionToTelugu(text) {
+
+    try {
+
+        const url =
+            "https://api.mymemory.translated.net/get" +
+            "?q=" +
+            encodeURIComponent(text) +
+            "&langpair=en|te";
+
+        const response =
+            await fetch(url);
+
+        if (!response.ok) {
+
+            throw new Error(
+                "Translation server returned " +
+                response.status
+            );
+
+        }
+
+        const data =
+            await response.json();
+
+        if (
+            data &&
+            data.responseData &&
+            data.responseData.translatedText
+        ) {
+
+            questionText.textContent =
+                data.responseData.translatedText;
+
+        } else {
+
+            throw new Error(
+                "No translated text received"
+            );
+
+        }
+
+    } catch (error) {
+
+        console.error(
+            "Translation error:",
+            error
+        );
+
+        questionText.textContent =
+            "Translation unavailable.";
+
+    }
+
+
+}
+
+// =========================================
+// LANGUAGE BUTTONS
+// =========================================
+
+const englishButton =
+    document.getElementById("englishButton");
+
+const teluguButton =
+    document.getElementById("teluguButton");
+
+
+englishButton.addEventListener(
+    "click",
+    function () {
+
+        currentLanguage = "english";
+
+        englishButton.classList.add("active");
+
+        teluguButton.classList.remove("active");
+
+
+        if (currentQuestion) {
+
+            questionText.textContent =
+                currentQuestion.text;
+
+        }
+
+    }
+);
+
+
+teluguButton.addEventListener(
+    "click",
+    async function () {
+
+        currentLanguage = "telugu";
+
+        teluguButton.classList.add("active");
+
+        englishButton.classList.remove("active");
+
+
+        if (!currentQuestion) {
+            return;
+        }
+
+
+        questionText.textContent =
+            "Translating...";
+
+
+        await translateQuestionToTelugu(
+            currentQuestion.text
+        );
+
+    }
+);
+
+
+</script>
+
+
+</body>
+
+</html>

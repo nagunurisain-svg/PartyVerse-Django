@@ -1,0 +1,566 @@
+/* =========================================
+   GLOBAL
+========================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Poppins", sans-serif;
+    background: #080812;
+    color: white;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+
+/* =========================================
+   BACKGROUND
+========================================= */
+
+.background-glow {
+    position: fixed;
+
+    width: 450px;
+    height: 450px;
+
+    border-radius: 50%;
+
+    filter: blur(130px);
+
+    opacity: 0.16;
+
+    pointer-events: none;
+
+    z-index: -1;
+}
+
+.glow-one {
+    background: #7c3aed;
+
+    top: -180px;
+    left: -150px;
+}
+
+.glow-two {
+    background: #ec4899;
+
+    right: -180px;
+    bottom: -180px;
+}
+
+
+/* =========================================
+   HEADER
+========================================= */
+
+.online-header {
+    max-width: 1100px;
+
+    margin: auto;
+
+    padding: 25px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+}
+
+.logo {
+    font-size: 20px;
+
+    font-weight: 800;
+}
+
+.exit-button {
+    padding: 9px 15px;
+
+    border-radius: 9px;
+
+    border: 1px solid #29293c;
+
+    background: #11111d;
+
+    color: #858596;
+
+    text-decoration: none;
+
+    font-family: inherit;
+
+    font-size: 11px;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+.exit-button:hover {
+    color: white;
+
+    background: #1a1a29;
+}
+
+
+/* =========================================
+   MAIN
+========================================= */
+
+main {
+    min-height: calc(100vh - 80px);
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 40px 20px 80px;
+}
+
+
+/* =========================================
+   ONLINE SCREEN
+========================================= */
+
+.online-screen,
+.room-screen,
+.lobby-screen {
+    width: 100%;
+
+    max-width: 700px;
+
+    text-align: center;
+}
+
+.online-icon {
+    font-size: 65px;
+
+    margin-bottom: 18px;
+}
+
+.eyebrow {
+    color: #a78bfa;
+
+    font-size: 10px;
+
+    font-weight: 700;
+
+    letter-spacing: 2px;
+}
+
+.online-screen h1,
+.room-screen h1,
+.lobby-screen h1 {
+    font-size: 45px;
+
+    margin-top: 8px;
+
+    letter-spacing: -2px;
+}
+
+.subtitle {
+    color: #858596;
+
+    margin-top: 10px;
+
+    font-size: 14px;
+}
+
+
+/* =========================================
+   ONLINE OPTIONS
+========================================= */
+
+.online-grid {
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 18px;
+
+    margin-top: 40px;
+}
+
+.online-card {
+    padding: 35px 25px;
+
+    border-radius: 24px;
+
+    border: 1px solid #29293c;
+
+    background: #11111d;
+
+    transition: 0.3s;
+}
+
+.online-card:hover {
+    transform: translateY(-6px);
+
+    border-color: #8b5cf6;
+
+    box-shadow:
+        0 15px 50px
+        rgba(124, 58, 237, 0.15);
+}
+
+.card-icon {
+    font-size: 45px;
+
+    margin-bottom: 15px;
+}
+
+.online-card h2 {
+    font-size: 24px;
+}
+
+.online-card p {
+    color: #77778a;
+
+    font-size: 12px;
+
+    line-height: 1.7;
+
+    margin-top: 8px;
+}
+
+
+/* =========================================
+   FORMS
+========================================= */
+
+.room-form {
+    width: 100%;
+
+    max-width: 500px;
+
+    margin: 35px auto 0;
+
+    text-align: left;
+}
+
+.room-form label {
+    display: block;
+
+    margin-bottom: 8px;
+
+    color: #aaaabd;
+
+    font-size: 12px;
+
+    font-weight: 600;
+}
+
+.room-input {
+    width: 100%;
+
+    padding: 15px 16px;
+
+    margin-bottom: 18px;
+
+    border-radius: 12px;
+
+    border: 1px solid #29293c;
+
+    background: #11111d;
+
+    color: white;
+
+    font-family: inherit;
+
+    font-size: 13px;
+
+    outline: none;
+
+    transition: 0.3s;
+}
+
+.room-input::placeholder {
+    color: #66667a;
+}
+
+.room-input:focus {
+    border-color: #8b5cf6;
+
+    box-shadow:
+        0 0 0 3px
+        rgba(124, 58, 237, 0.12);
+}
+
+.room-code-input {
+    text-transform: uppercase;
+
+    letter-spacing: 3px;
+
+    text-align: center;
+
+    font-weight: 700;
+}
+
+
+/* =========================================
+   BUTTONS
+========================================= */
+
+.primary-action,
+.secondary-action {
+    border-radius: 12px;
+
+    font-family: inherit;
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+.primary-action {
+    display: block;
+
+    width: 100%;
+
+    padding: 15px 25px;
+
+    border: none;
+
+    background:
+        linear-gradient(
+            90deg,
+            #7c3aed,
+            #a855f7
+        );
+
+    color: white;
+}
+
+.primary-action:hover {
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 12px 30px
+        rgba(124, 58, 237, 0.25);
+}
+
+.secondary-action {
+    padding: 11px 18px;
+
+    border: 1px solid #303044;
+
+    background: #11111d;
+
+    color: #aaaabd;
+}
+
+.secondary-action:hover {
+    color: white;
+
+    background: #1a1a2a;
+
+    transform: translateY(-2px);
+}
+
+
+/* =========================================
+   ROOM CODE
+========================================= */
+
+.room-code-box {
+    margin: 30px auto 0;
+
+    padding: 25px;
+
+    border-radius: 22px;
+
+    border: 1px solid #29293c;
+
+    background: #11111d;
+
+    text-align: center;
+}
+
+.room-code-box span {
+    display: block;
+
+    color: #858596;
+
+    font-size: 10px;
+
+    font-weight: 700;
+
+    letter-spacing: 2px;
+}
+
+.room-code-box strong {
+    display: block;
+
+    margin: 10px 0 18px;
+
+    color: #b9a4ff;
+
+    font-size: 38px;
+
+    letter-spacing: 7px;
+}
+
+
+/* =========================================
+   PLAYERS
+========================================= */
+
+.players-box {
+    margin-top: 20px;
+
+    padding: 25px;
+
+    border-radius: 22px;
+
+    border: 1px solid #29293c;
+
+    background: #11111d;
+
+    text-align: left;
+}
+
+.players-title {
+    color: #858596;
+
+    font-size: 10px;
+
+    font-weight: 700;
+
+    letter-spacing: 2px;
+
+    margin-bottom: 15px;
+}
+
+.player-item {
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    padding: 12px 0;
+
+    border-bottom: 1px solid #222234;
+}
+
+.player-item:last-child {
+    border-bottom: none;
+}
+
+.player-item strong {
+    flex: 1;
+
+    font-size: 14px;
+}
+
+.player-item small {
+    padding: 4px 8px;
+
+    border-radius: 6px;
+
+    background: #251b48;
+
+    color: #b9a4ff;
+
+    font-size: 8px;
+
+    font-weight: 800;
+
+    letter-spacing: 1px;
+}
+
+
+/* =========================================
+   WAITING
+========================================= */
+
+.waiting-message {
+    margin-top: 25px;
+
+    padding: 15px;
+
+    border-radius: 12px;
+
+    border: 1px solid #29293c;
+
+    background: #11111d;
+
+    color: #858596;
+
+    font-size: 12px;
+}
+
+
+/* =========================================
+   ERROR
+========================================= */
+
+.error-message {
+    max-width: 500px;
+
+    margin: 25px auto 0;
+
+    padding: 12px 15px;
+
+    border-radius: 10px;
+
+    background: rgba(239, 68, 68, 0.1);
+
+    border: 1px solid rgba(239, 68, 68, 0.3);
+
+    color: #fca5a5;
+
+    font-size: 12px;
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 650px) {
+
+    .online-header {
+        padding: 18px;
+    }
+
+    main {
+        padding: 25px 18px 60px;
+    }
+
+    .online-screen h1,
+    .room-screen h1,
+    .lobby-screen h1 {
+        font-size: 36px;
+    }
+
+    .online-icon {
+        font-size: 55px;
+    }
+
+    .online-grid {
+        grid-template-columns: 1fr;
+
+        margin-top: 30px;
+    }
+
+    .online-card {
+        padding: 28px 22px;
+    }
+
+    .room-code-box strong {
+        font-size: 30px;
+
+        letter-spacing: 5px;
+    }
+
+}

@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Choose Difficulty | PartyVerse</title>
+
+    {% load static %}
+
+    <link
+        rel="stylesheet"
+        href="{% static 'game/css/difficulty.css' %}">
+
+</head>
+
+
+<body>
+
+
+    <div class="background-glow glow-one"></div>
+
+    <div class="background-glow glow-two"></div>
+
+
+    <!-- HEADER -->
+
+    <header class="game-header">
+
+        <a
+            href="{% url 'categories' %}"
+            class="back-button">
+
+            ← Categories
+
+        </a>
+
+
+        <div class="logo">
+
+            🎭 PartyVerse
+
+        </div>
+
+
+        <div class="step-indicator">
+
+            STEP 3 / 4
+
+        </div>
+
+    </header>
+
+
+    <!-- MAIN -->
+
+    <main>
+
+        <section class="difficulty-container">
+
+
+            <div class="difficulty-icon">
+
+                🎚️
+
+            </div>
+
+
+            <span class="eyebrow">
+
+                GAME SETTINGS
+
+            </span>
+
+
+            <h1>
+
+                Choose your difficulty
+
+            </h1>
+
+
+            <p class="subtitle">
+
+                How challenging should your game be?
+
+            </p>
+
+
+            <!-- DIFFICULTIES -->
+
+            <div class="difficulty-grid">
+
+
+                <button
+                    type="button"
+                    class="difficulty-card"
+                    data-difficulty="easy">
+
+
+                    <div class="difficulty-emoji">
+
+                        🟢
+
+                    </div>
+
+
+                    <div class="difficulty-content">
+
+                        <h2>
+                            Easy
+                        </h2>
+
+                        <p>
+                            Light, funny and comfortable
+                            questions and dares.
+                        </p>
+
+                    </div>
+
+
+                    <div class="difficulty-check">
+
+                        ✓
+
+                    </div>
+
+
+                </button>
+
+
+
+                <button
+                    type="button"
+                    class="difficulty-card"
+                    data-difficulty="medium">
+
+
+                    <div class="difficulty-emoji">
+
+                        🟡
+
+                    </div>
+
+
+                    <div class="difficulty-content">
+
+                        <h2>
+                            Medium
+                        </h2>
+
+                        <p>
+                            More challenging and
+                            interesting situations.
+                        </p>
+
+                    </div>
+
+
+                    <div class="difficulty-check">
+
+                        ✓
+
+                    </div>
+
+
+                </button>
+
+
+
+                <button
+                    type="button"
+                    class="difficulty-card"
+                    data-difficulty="hard">
+
+
+                    <div class="difficulty-emoji">
+
+                        🔴
+
+                    </div>
+
+
+                    <div class="difficulty-content">
+
+                        <h2>
+                            Hard
+                        </h2>
+
+                        <p>
+                            Bold, deep and challenging
+                            questions and dares.
+                        </p>
+
+                    </div>
+
+
+                    <div class="difficulty-check">
+
+                        ✓
+
+                    </div>
+
+
+                </button>
+
+
+
+                <button
+                    type="button"
+                    class="difficulty-card"
+                    data-difficulty="mixed">
+
+
+                    <div class="difficulty-emoji">
+
+                        🎲
+
+                    </div>
+
+
+                    <div class="difficulty-content">
+
+                        <h2>
+                            Mixed
+                        </h2>
+
+                        <p>
+                            Let PartyVerse randomly
+                            choose the difficulty.
+                        </p>
+
+                    </div>
+
+
+                    <div class="difficulty-check">
+
+                        ✓
+
+                    </div>
+
+
+                </button>
+
+
+            </div>
+
+
+            <!-- START -->
+
+            <button
+                type="button"
+                id="continueButton"
+                class="continue-button"
+                disabled>
+
+                Start Game
+
+                <span>
+                    →
+                </span>
+
+            </button>
+
+
+        </section>
+
+    </main>
+
+
+    <!-- JAVASCRIPT -->
+
+    <script>
+
+
+        const difficultyCards =
+            document.querySelectorAll(
+                ".difficulty-card"
+            );
+
+
+        const continueButton =
+            document.getElementById(
+                "continueButton"
+            );
+
+
+        let selectedDifficulty = null;
+
+
+
+        /*
+        SELECT DIFFICULTY
+        */
+
+        difficultyCards.forEach(card => {
+
+            card.addEventListener(
+                "click",
+                function() {
+
+
+                    difficultyCards.forEach(
+                        item => {
+
+                            item.classList.remove(
+                                "selected"
+                            );
+
+                        }
+                    );
+
+
+                    this.classList.add(
+                        "selected"
+                    );
+
+
+                    selectedDifficulty =
+                        this.dataset.difficulty;
+
+
+                    continueButton.disabled =
+                        false;
+
+                }
+            );
+
+        });
+
+
+
+        /*
+        START GAME
+        */
+
+        continueButton.addEventListener(
+            "click",
+            function() {
+
+
+                if (!selectedDifficulty) {
+
+                    return;
+
+                }
+
+
+                /*
+                Save difficulty
+                */
+
+                sessionStorage.setItem(
+                    "partyverse_difficulty",
+                    selectedDifficulty
+                );
+
+
+                /*
+                Open actual game
+                */
+
+                window.location.href =
+                    "{% url 'game' %}";
+
+            }
+        );
+
+
+    </script>
+
+
+</body>
+
+</html>

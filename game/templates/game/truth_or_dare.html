@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Truth or Dare | PartyVerse</title>
+
+
+    <!-- Google Font -->
+
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+
+    <!-- Django Static -->
+
+    {% load static %}
+
+    <link
+        rel="stylesheet"
+        href="{% static 'game/css/truth_or_dare.css' %}">
+
+</head>
+
+
+<body>
+
+
+    <!-- ================================
+         BACKGROUND
+    ================================= -->
+
+    <div class="background-glow glow-one"></div>
+
+    <div class="background-glow glow-two"></div>
+
+
+
+    <!-- ================================
+         HEADER
+    ================================= -->
+
+    <header class="game-header">
+
+
+        <a
+            href="{% url 'home' %}"
+            class="back-button">
+
+            ← Back
+
+        </a>
+
+
+        <div class="logo">
+
+            🎭 PartyVerse
+
+        </div>
+
+
+        <div class="step-indicator">
+
+            STEP 1 / 3
+
+        </div>
+
+
+    </header>
+
+
+
+    <!-- ================================
+         MAIN
+    ================================= -->
+
+    <main>
+
+
+        <section class="setup-container">
+
+
+            <!-- GAME ICON -->
+
+            <div class="setup-icon">
+
+                🎭
+
+            </div>
+
+
+
+            <!-- TITLE -->
+
+            <span class="eyebrow">
+
+                TRUTH OR DARE
+
+            </span>
+
+
+            <h1>
+
+                Who's playing?
+
+            </h1>
+
+
+            <p class="subtitle">
+
+                Add everyone who wants to join the game.
+
+            </p>
+
+
+
+            <!-- ================================
+                 PLAYER INPUT
+            ================================= -->
+
+            <div class="player-input-section">
+
+
+                <div class="input-row">
+
+
+                    <input
+                        type="text"
+                        id="playerInput"
+                        placeholder="Enter player name..."
+                        maxlength="20"
+                        autocomplete="off"
+                    >
+
+
+                    <button
+                        type="button"
+                        id="addPlayer">
+
+                        + Add
+
+                    </button>
+
+
+                </div>
+
+
+
+                <p class="player-limit">
+
+                    Minimum 2 players • Maximum 12 players
+
+                </p>
+
+
+
+                <!-- PLAYER LIST -->
+
+                <div
+                    id="playersList"
+                    class="players-list">
+
+                </div>
+
+
+
+                <!-- EMPTY MESSAGE -->
+
+                <div
+                    id="emptyMessage"
+                    class="empty-message">
+
+                    👥 No players added yet
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- ================================
+                 CONTINUE
+            ================================= -->
+
+            <button
+                type="button"
+                id="continueButton"
+                class="continue-button"
+                disabled>
+
+                Continue
+
+                <span>
+                    →
+                </span>
+
+            </button>
+
+
+        </section>
+
+
+    </main>
+
+
+
+    <!-- ================================
+         JAVASCRIPT
+    ================================= -->
+
+    <script>
+
+
+        /*
+        =========================================
+        ELEMENTS
+        =========================================
+        */
+
+        const playerInput =
+            document.getElementById("playerInput");
+
+
+        const addPlayerButton =
+            document.getElementById("addPlayer");
+
+
+        const playersList =
+            document.getElementById("playersList");
+
+
+        const emptyMessage =
+            document.getElementById("emptyMessage");
+
+
+        const continueButton =
+            document.getElementById("continueButton");
+
+
+
+        /*
+        =========================================
+        GAME DATA
+        =========================================
+        */
+
+        let players = [];
+
+
+        const MAX_PLAYERS = 12;
+
+
+
+        /*
+        =========================================
+        ADD PLAYER
+        =========================================
+        */
+
+        function addPlayer() {
+
+
+            const name =
+                playerInput.value.trim();
+
+
+
+            /*
+            Empty name
+            */
+
+            if (name === "") {
+
+                alert(
+                    "Please enter a player name."
+                );
+
+                playerInput.focus();
+
+                return;
+            }
+
+
+
+            /*
+            Maximum players
+            */
+
+            if (players.length >= MAX_PLAYERS) {
+
+                alert(
+                    "Maximum 12 players are allowed."
+                );
+
+                return;
+            }
+
+
+
+            /*
+            Duplicate player
+            */
+
+            const duplicate =
+                players.some(
+                    player =>
+                        player.toLowerCase() ===
+                        name.toLowerCase()
+                );
+
+
+            if (duplicate) {
+
+                alert(
+                    "This player is already added."
+                );
+
+                playerInput.select();
+
+                return;
+            }
+
+
+
+            /*
+            Add player
+            */
+
+            players.push(name);
+
+
+
+            /*
+            Clear input
+            */
+
+            playerInput.value = "";
+
+
+
+            /*
+            Update player list
+            */
+
+            displayPlayers();
+
+
+
+            /*
+            Focus input
+            */
+
+            playerInput.focus();
+
+        }
+
+
+
+        /*
+        =========================================
+        DISPLAY PLAYERS
+        =========================================
+        */
+
+        function displayPlayers() {
+
+
+            playersList.innerHTML = "";
+
+
+
+            /*
+            Empty message
+            */
+
+            if (players.length === 0) {
+
+                emptyMessage.style.display = "block";
+
+            }
+
+            else {
+
+                emptyMessage.style.display = "none";
+
+            }
+
+
+
+            /*
+            Create player cards
+            */
+
+            players.forEach(
+                (player, index) => {
+
+
+                    const playerCard =
+                        document.createElement("div");
+
+
+                    playerCard.className =
+                        "player-card";
+
+
+
+                    playerCard.innerHTML = `
+
+                        <div class="player-info">
+
+                            <div class="player-number">
+
+                                ${index + 1}
+
+                            </div>
+
+
+                            <div class="player-name">
+
+                                ${escapeHTML(player)}
+
+                            </div>
+
+                        </div>
+
+
+                        <button
+                            type="button"
+                            class="remove-player"
+                            onclick="removePlayer(${index})">
+
+                            ×
+
+                        </button>
+
+                    `;
+
+
+
+                    playersList.appendChild(
+                        playerCard
+                    );
+
+                }
+            );
+
+
+
+            /*
+            Enable Continue
+            */
+
+            continueButton.disabled =
+                players.length < 2;
+
+        }
+
+
+
+        /*
+        =========================================
+        REMOVE PLAYER
+        =========================================
+        */
+
+        function removePlayer(index) {
+
+
+            players.splice(index, 1);
+
+
+            displayPlayers();
+
+        }
+
+
+
+        /*
+        =========================================
+        ESCAPE HTML
+        =========================================
+        */
+
+        function escapeHTML(text) {
+
+
+            const div =
+                document.createElement("div");
+
+
+            div.textContent =
+                text;
+
+
+            return div.innerHTML;
+
+        }
+
+
+
+        /*
+        =========================================
+        ADD BUTTON
+        =========================================
+        */
+
+        addPlayerButton.addEventListener(
+            "click",
+            addPlayer
+        );
+
+
+
+        /*
+        =========================================
+        ENTER KEY
+        =========================================
+        */
+
+        playerInput.addEventListener(
+            "keydown",
+            function(event) {
+
+
+                if (event.key === "Enter") {
+
+
+                    event.preventDefault();
+
+
+                    addPlayer();
+
+                }
+
+            }
+        );
+
+
+
+        /*
+        =========================================
+        CONTINUE BUTTON
+        =========================================
+        */
+
+        continueButton.addEventListener(
+            "click",
+            function() {
+
+
+                if (players.length < 2) {
+
+                    return;
+
+                }
+
+
+
+                /*
+                Save players temporarily
+                */
+
+                sessionStorage.setItem(
+                    "partyverse_players",
+                    JSON.stringify(players)
+                );
+
+
+
+                /*
+                Temporary navigation.
+
+                We will replace this with
+                Django URL routing after
+                creating the category page.
+                */
+
+                window.location.href =
+                    "/truth-or-dare/categories/";
+
+            }
+        );
+
+
+
+        /*
+        =========================================
+        INITIALIZE PAGE
+        =========================================
+        */
+
+        displayPlayers();
+
+
+    </script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,667 @@
+[
+  {
+    "model": "game.question",
+    "pk": 1,
+    "fields": {
+      "question_type": "truth",
+      "category": "fantasy",
+      "difficulty": "easy",
+      "text": "If you could have one magical power for a day, what would it be?",
+      "is_active": true
+    }
+  },
+  {
+    "model": "game.question",
+    "pk": 2,
+    "fields": {
+      "question_type": "truth",
+      "category": "fantasy",
+      "difficulty": "easy",
+      "text": "If you could fly or become invisible, which would you choose?",
+      "is_active": true
+    }
+  },
+  {
+    "model": "game.question",
+    "pk": 3,
+    "fields": {
+      "question_type": "truth",
+      "category": "fantasy",
+      "difficulty": "easy",
+      "text": "If you could talk to one magical creature, which would you choose?",
+      "is_active": true
+    }
+  },
+  {
+    "model": "game.question",
+    "pk": 4,
+    "fields": {
+      "question_type": "truth",
+      "category": "fantasy",
+      "difficulty": "easy",
+      "text": "If you found a magic lamp, what would your first wish be?",
+      "is_active": true
+    }
+  },
+  {
+    "model": "game.question",
+    "pk": 5,
+    "fields": {
+      "question_type": "truth",
+      "category": "fantasy",
+      "difficulty": "easy",
+      "text": "If you could live in a fantasy castle, would you?",
+      "is_active": true
+    }
+  },
+  {
+    "model": "game.question",
+    "pk": 6,
+    "fields": {
+      "question_type": "truth",
+      "category": "fantasy",
+      "difficulty": "easy",
+      "text": "If you could become a superhero for one day, what would your name be?",
+      "is_active": true
+    }
+  },
+  {
+    "model": "game.question",
+    "pk": 7,
+    "fields": {
+      "question_type": "truth",
+      "category": "fantasy",
+      "difficulty": "easy",
+      "text": "If you could have a magical pet, what would it be?",
+      "is_active": true
+    }
+  },
+  {
+    "model": "game.question",
+    "pk": 8,
+    "fields": {
+      "question_type": "truth",
+      "category": "fantasy",
+      "difficulty": "easy",
+      "text": "If you could control fire, water, air, or earth, which would you choose?",
+      "is_active": true
+    }
+  },
+  {
+    "model": "game.question",
+    "pk": 9,
+    "fields": {
+      "question_type": "truth",
+      "category": "fantasy",
+      "difficulty": "easy",
+      "text": "If you could enter any fantasy movie, which one would you choose?",
+      "is_active": true
+    }
+  },
+  {
+    "model": "game.question",
+    "pk": 10,
+    "fields": {
+      "question_type": "truth",
+      "category": "fantasy",
+      "difficulty": "easy",
+      "text": "If you could have a magic wand, what would you use it for first?",
+      "is_active": true
+    }
+  },
+
+  {
+    "model": "game.question",
+    "pk": 11,
+    "fields": {
+      "question_type": "dare",
+      "category": "fantasy",
+      "difficulty": "easy",
+      "text": "Pretend you have magical powers and cast a spell.",
+      "is_active": true
+    }
+  },
+  {
+    "model": "game.question",
+    "pk": 12,
+    "fields": {
+      "question_type": "dare",
+      "category": "fantasy",
+      "difficulty": "easy",
+      "text": "Act like a superhero who just discovered their powers.",
+      "is_active": true
+    }
+  },
+  {
+    "model": "game.question",
+    "pk": 13,
+    "fields": {
+      "question_type": "dare",
+      "category": "fantasy",
+      "difficulty": "easy",
+      "text": "Pretend you're a dragon protecting your treasure.",
+      "is_active": true
+    }
+  },
+  {
+    "model": "game.question",
+    "pk": 14,
+    "fields": {
+      "question_type": "dare",
+      "category": "fantasy",
+      "difficulty": "easy",
+      "text": "Create a magical spell using three random words.",
+      "is_active": true
+    }
+  },
+  {
+    "model": "game.question",
+    "pk": 15,
+    "fields": {
+      "question_type": "dare",
+      "category": "fantasy",
+      "difficulty": "easy",
+      "text": "Act like a wizard for 30 seconds.",
+      "is_active": true
+    }
+  },
+  {
+    "model": "game.question",
+    "pk": 16,
+    "fields": {
+      "question_type": "dare",
+      "category": "fantasy",
+      "difficulty": "easy",
+      "text": "Pretend you can fly and demonstrate how you would fly.",
+      "is_active": true
+    }
+  },
+  {
+    "model": "game.question",
+    "pk": 17,
+    "fields": {
+      "question_type": "dare",
+      "category": "fantasy",
+      "difficulty": "easy",
+      "text": "Make your most dramatic superhero pose.",
+      "is_active": true
+    }
+  },
+  {
+    "model": "game.question",
+    "pk": 18,
+    "fields": {
+      "question_type": "dare",
+      "category": "fantasy",
+      "difficulty": "easy",
+      "text": "Pretend you're an alien meeting humans for the first time.",
+      "is_active": true
+    }
+  },
+  {
+    "model": "game.question",
+    "pk": 19,
+    "fields": {
+      "question_type": "dare",
+      "category": "fantasy",
+      "difficulty": "easy",
+      "text": "Act like a magical creature without speaking.",
+      "is_active": true
+    }
+  },
+  {
+    "model": "game.question",
+    "pk": 20,
+    "fields": {
+      "question_type": "dare",
+      "category": "fantasy",
+      "difficulty": "easy",
+      "text": "Pretend you just discovered a secret portal.",
+      "is_active": true
+    }
+  },
+
+  {
+    "model": "game.question",
+    "pk": 21,
+    "fields": {
+      "question_type": "truth",
+      "category": "fantasy",
+      "difficulty": "medium",
+      "text": "If you could live in any fantasy universe, which one would you choose and why?",
+      "is_active": true
+    }
+  },
+  {
+    "model": "game.question",
+    "pk": 22,
+    "fields": {
+      "question_type": "truth",
+      "category": "fantasy",
+      "difficulty": "medium",
+      "text": "If you could travel through time, would you visit the past or future?",
+      "is_active": true
+    }
+  },
+  {
+    "model": "game.question",
+    "pk": 23,
+    "fields": {
+      "question_type": "truth",
+      "category": "fantasy",
+      "difficulty": "medium",
+      "text": "If you could become any mythical creature, what would you become?",
+      "is_active": true
+    }
+  },
+  {
+    "model": "game.question",
+    "pk": 24,
+    "fields": {
+      "question_type": "truth",
+      "category": "fantasy",
+      "difficulty": "medium",
+      "text": "If you had three magical wishes, what would they be?",
+      "is_active": true
+    }
+  },
+  {
+    "model": "game.question",
+    "pk": 25,
+    "fields": {
+      "question_type": "truth",
+      "category": "fantasy",
+      "difficulty": "medium",
+      "text": "If you could meet one fictional character in real life, who would it be?",
+      "is_active": true
+    }
+  },
+  {
+    "model": "game.question",
+    "pk": 26,
+    "fields": {
+      "question_type": "truth",
+      "category": "fantasy",
+      "difficulty": "medium",
+      "text": "If you could create your own magical kingdom, what would it be like?",
+      "is_active": true
+    }
+  },
+  {
+    "model": "game.question",
+    "pk": 27,
+    "fields": {
+      "question_type": "truth",
+      "category": "fantasy",
+      "difficulty": "medium",
+      "text": "If you could choose between being a wizard, warrior, king or queen, or explorer, which would you choose?",
+      "is_active": true
+    }
+  },
+  {
+    "model": "game.question",
+    "pk": 28,
+    "fields": {
+      "question_type": "truth",
+      "category": "fantasy",
+      "difficulty": "medium",
+      "text": "If you could make one impossible thing real, what would it be?",
+      "is_active": true
+    }
+  },
+  {
+    "model": "game.question",
+    "pk": 29,
+    "fields": {
+      "question_type": "truth",
+      "category": "fantasy",
+      "difficulty": "medium",
+      "text": "If you discovered a secret magical world hidden from everyone else, would you reveal it?",
+      "is_active": true
+    }
+  },
+  {
+    "model": "game.question",
+    "pk": 30,
+    "fields": {
+      "question_type": "truth",
+      "category": "fantasy",
+      "difficulty": "medium",
+      "text": "If you could change one rule of reality using magic, what would you change?",
+      "is_active": true
+    }
+  },
+
+  {
+    "model": "game.question",
+    "pk": 31,
+    "fields": {
+      "question_type": "dare",
+      "category": "fantasy",
+      "difficulty": "medium",
+      "text": "Give yourself a dramatic speech as the ruler of a magical kingdom.",
+      "is_active": true
+    }
+  },
+  {
+    "model": "game.question",
+    "pk": 32,
+    "fields": {
+      "question_type": "dare",
+      "category": "fantasy",
+      "difficulty": "medium",
+      "text": "Pretend you're a wizard teaching another player their first spell.",
+      "is_active": true
+    }
+  },
+  {
+    "model": "game.question",
+    "pk": 33,
+    "fields": {
+      "question_type": "dare",
+      "category": "fantasy",
+      "difficulty": "medium",
+      "text": "Act out a battle against an invisible monster.",
+      "is_active": true
+    }
+  },
+  {
+    "model": "game.question",
+    "pk": 34,
+    "fields": {
+      "question_type": "dare",
+      "category": "fantasy",
+      "difficulty": "medium",
+      "text": "Pretend you've traveled 1,000 years into the future and explain what you see.",
+      "is_active": true
+    }
+  },
+  {
+    "model": "game.question",
+    "pk": 35,
+    "fields": {
+      "question_type": "dare",
+      "category": "fantasy",
+      "difficulty": "medium",
+      "text": "Invent a magical creature and explain its powers.",
+      "is_active": true
+    }
+  },
+  {
+    "model": "game.question",
+    "pk": 36,
+    "fields": {
+      "question_type": "dare",
+      "category": "fantasy",
+      "difficulty": "medium",
+      "text": "Pretend you're a superhero arriving to save everyone.",
+      "is_active": true
+    }
+  },
+  {
+    "model": "game.question",
+    "pk": 37,
+    "fields": {
+      "question_type": "dare",
+      "category": "fantasy",
+      "difficulty": "medium",
+      "text": "Act like a time traveler who accidentally arrived in the wrong year.",
+      "is_active": true
+    }
+  },
+  {
+    "model": "game.question",
+    "pk": 38,
+    "fields": {
+      "question_type": "dare",
+      "category": "fantasy",
+      "difficulty": "medium",
+      "text": "Pretend you're a villain explaining your master plan.",
+      "is_active": true
+    }
+  },
+  {
+    "model": "game.question",
+    "pk": 39,
+    "fields": {
+      "question_type": "dare",
+      "category": "fantasy",
+      "difficulty": "medium",
+      "text": "Create a fantasy superhero name for the player next to you.",
+      "is_active": true
+    }
+  },
+  {
+    "model": "game.question",
+    "pk": 40,
+    "fields": {
+      "question_type": "dare",
+      "category": "fantasy",
+      "difficulty": "medium",
+      "text": "Pretend you just discovered a legendary magical treasure and react dramatically.",
+      "is_active": true
+    }
+  },
+
+  {
+    "model": "game.question",
+    "pk": 41,
+    "fields": {
+      "question_type": "truth",
+      "category": "fantasy",
+      "difficulty": "hard",
+      "text": "If you could rewrite one part of reality, what would you change?",
+      "is_active": true
+    }
+  },
+  {
+    "model": "game.question",
+    "pk": 42,
+    "fields": {
+      "question_type": "truth",
+      "category": "fantasy",
+      "difficulty": "hard",
+      "text": "If you could know exactly what your future looks like, would you choose to see it?",
+      "is_active": true
+    }
+  },
+  {
+    "model": "game.question",
+    "pk": 43,
+    "fields": {
+      "question_type": "truth",
+      "category": "fantasy",
+      "difficulty": "hard",
+      "text": "If you could become extremely powerful but could never return to your normal life, would you accept?",
+      "is_active": true
+    }
+  },
+  {
+    "model": "game.question",
+    "pk": 44,
+    "fields": {
+      "question_type": "truth",
+      "category": "fantasy",
+      "difficulty": "hard",
+      "text": "If you could save either your past or your future, which would you choose?",
+      "is_active": true
+    }
+  },
+  {
+    "model": "game.question",
+    "pk": 45,
+    "fields": {
+      "question_type": "truth",
+      "category": "fantasy",
+      "difficulty": "hard",
+      "text": "If you could enter a fantasy world but never return to reality, would you go?",
+      "is_active": true
+    }
+  },
+  {
+    "model": "game.question",
+    "pk": 46,
+    "fields": {
+      "question_type": "truth",
+      "category": "fantasy",
+      "difficulty": "hard",
+      "text": "If you could erase one painful memory using magic, would you?",
+      "is_active": true
+    }
+  },
+  {
+    "model": "game.question",
+    "pk": 47,
+    "fields": {
+      "question_type": "truth",
+      "category": "fantasy",
+      "difficulty": "hard",
+      "text": "If you could become immortal but watch everyone you love grow old, would you accept?",
+      "is_active": true
+    }
+  },
+  {
+    "model": "game.question",
+    "pk": 48,
+    "fields": {
+      "question_type": "truth",
+      "category": "fantasy",
+      "difficulty": "hard",
+      "text": "If you had unlimited magical power, what is the first thing you would change about the world?",
+      "is_active": true
+    }
+  },
+  {
+    "model": "game.question",
+    "pk": 49,
+    "fields": {
+      "question_type": "truth",
+      "category": "fantasy",
+      "difficulty": "hard",
+      "text": "If you could meet your future self, what is the one question you would ask?",
+      "is_active": true
+    }
+  },
+  {
+    "model": "game.question",
+    "pk": 50,
+    "fields": {
+      "question_type": "truth",
+      "category": "fantasy",
+      "difficulty": "hard",
+      "text": "If you could know one absolute truth about the universe, what would you want to know?",
+      "is_active": true
+    }
+  },
+
+  {
+    "model": "game.question",
+    "pk": 51,
+    "fields": {
+      "question_type": "dare",
+      "category": "fantasy",
+      "difficulty": "hard",
+      "text": "Give a 30-second dramatic speech as the most powerful person in the universe.",
+      "is_active": true
+    }
+  },
+  {
+    "model": "game.question",
+    "pk": 52,
+    "fields": {
+      "question_type": "dare",
+      "category": "fantasy",
+      "difficulty": "hard",
+      "text": "Pretend you are a legendary villain explaining why you became evil.",
+      "is_active": true
+    }
+  },
+  {
+    "model": "game.question",
+    "pk": 53,
+    "fields": {
+      "question_type": "dare",
+      "category": "fantasy",
+      "difficulty": "hard",
+      "text": "Act out a scene where you discover that your best friend is secretly a superhero.",
+      "is_active": true
+    }
+  },
+  {
+    "model": "game.question",
+    "pk": 54,
+    "fields": {
+      "question_type": "dare",
+      "category": "fantasy",
+      "difficulty": "hard",
+      "text": "Pretend you're the last human alive in a fantasy world and give your final speech.",
+      "is_active": true
+    }
+  },
+  {
+    "model": "game.question",
+    "pk": 55,
+    "fields": {
+      "question_type": "dare",
+      "category": "fantasy",
+      "difficulty": "hard",
+      "text": "Create an imaginary superpower and demonstrate how you would use it.",
+      "is_active": true
+    }
+  },
+  {
+    "model": "game.question",
+    "pk": 56,
+    "fields": {
+      "question_type": "dare",
+      "category": "fantasy",
+      "difficulty": "hard",
+      "text": "Pretend you can control time and act out freezing everyone in the room.",
+      "is_active": true
+    }
+  },
+  {
+    "model": "game.question",
+    "pk": 57,
+    "fields": {
+      "question_type": "dare",
+      "category": "fantasy",
+      "difficulty": "hard",
+      "text": "Act out a dramatic scene where you discover you are secretly royalty.",
+      "is_active": true
+    }
+  },
+  {
+    "model": "game.question",
+    "pk": 58,
+    "fields": {
+      "question_type": "dare",
+      "category": "fantasy",
+      "difficulty": "hard",
+      "text": "Pretend you're fighting an invisible army and defeat it dramatically.",
+      "is_active": true
+    }
+  },
+  {
+    "model": "game.question",
+    "pk": 59,
+    "fields": {
+      "question_type": "dare",
+      "category": "fantasy",
+      "difficulty": "hard",
+      "text": "Create your own fantasy kingdom, including its name, ruler, and one unusual law.",
+      "is_active": true
+    }
+  },
+  {
+    "model": "game.question",
+    "pk": 60,
+    "fields": {
+      "question_type": "dare",
+      "category": "fantasy",
+      "difficulty": "hard",
+      "text": "Pretend you're a powerful wizard whose magic has suddenly disappeared and act out your reaction.",
+      "is_active": true
+    }
+  }
+]

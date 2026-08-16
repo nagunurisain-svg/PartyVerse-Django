@@ -1,0 +1,475 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body {
+    font-family: "Poppins", sans-serif;
+
+    background: #080812;
+
+    color: white;
+
+    min-height: 100vh;
+
+    overflow-x: hidden;
+}
+
+
+/* ================================
+   BACKGROUND
+================================ */
+
+.background-glow {
+    position: fixed;
+
+    width: 450px;
+    height: 450px;
+
+    border-radius: 50%;
+
+    filter: blur(130px);
+
+    opacity: 0.16;
+
+    pointer-events: none;
+
+    z-index: -1;
+}
+
+
+.glow-one {
+    background: #7c3aed;
+
+    top: -180px;
+    left: -150px;
+}
+
+
+.glow-two {
+    background: #ec4899;
+
+    right: -180px;
+    bottom: -180px;
+}
+
+
+/* ================================
+   HEADER
+================================ */
+
+.game-header {
+    max-width: 1100px;
+
+    margin: auto;
+
+    padding: 25px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+}
+
+
+.logo {
+    font-size: 20px;
+
+    font-weight: 800;
+}
+
+
+.back-button {
+    color: #aaaabd;
+
+    text-decoration: none;
+
+    font-size: 13px;
+
+    padding: 9px 14px;
+
+    border: 1px solid #29293c;
+
+    border-radius: 10px;
+
+    transition: 0.3s;
+}
+
+
+.back-button:hover {
+    color: white;
+
+    background: #151523;
+}
+
+
+.step-indicator {
+    color: #77778a;
+
+    font-size: 12px;
+
+    font-weight: 600;
+}
+
+
+/* ================================
+   MAIN
+================================ */
+
+main {
+    min-height: calc(100vh - 80px);
+
+    display: flex;
+
+    justify-content: center;
+
+    padding: 50px 20px 80px;
+}
+
+
+/* ================================
+   CONTAINER
+================================ */
+
+.category-container {
+    width: 100%;
+
+    max-width: 900px;
+
+    text-align: center;
+}
+
+
+.category-icon {
+    width: 70px;
+    height: 70px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    margin: 0 auto 20px;
+
+    border-radius: 20px;
+
+    background: #151523;
+
+    border: 1px solid #303044;
+
+    font-size: 32px;
+}
+
+
+.eyebrow {
+    color: #a78bfa;
+
+    font-size: 10px;
+
+    font-weight: 700;
+
+    letter-spacing: 2px;
+}
+
+
+.category-container h1 {
+    font-size: 42px;
+
+    margin-top: 8px;
+
+    letter-spacing: -1.5px;
+}
+
+
+.subtitle {
+    color: #858596;
+
+    font-size: 14px;
+
+    margin-top: 10px;
+}
+
+
+/* ================================
+   SELECTION HEADER
+================================ */
+
+.selection-header {
+    margin-top: 40px;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+}
+
+
+#selectedCount {
+    color: #858596;
+
+    font-size: 12px;
+
+    font-weight: 600;
+}
+
+
+#selectAllButton {
+    border: 1px solid #303044;
+
+    background: #11111d;
+
+    color: #b9a4ff;
+
+    padding: 9px 15px;
+
+    border-radius: 9px;
+
+    font-family: inherit;
+
+    font-size: 11px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+
+#selectAllButton:hover {
+    background: #1b1b2b;
+}
+
+
+/* ================================
+   CATEGORY GRID
+================================ */
+
+.category-grid {
+    margin-top: 15px;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap: 14px;
+
+    text-align: left;
+}
+
+
+.category-card {
+    position: relative;
+
+    min-height: 130px;
+
+    padding: 22px;
+
+    border-radius: 18px;
+
+    border: 1px solid #27273a;
+
+    background: #11111d;
+
+    color: white;
+
+    font-family: inherit;
+
+    cursor: pointer;
+
+    text-align: left;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: flex-start;
+
+    transition: 0.3s;
+}
+
+
+.category-card:hover {
+    transform: translateY(-3px);
+
+    border-color: #4b4b69;
+
+    background: #151523;
+}
+
+
+.category-card.selected {
+    border-color: #8b5cf6;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(124, 58, 237, 0.18),
+            rgba(168, 85, 247, 0.06)
+        );
+
+    box-shadow:
+        0 0 0 1px
+        rgba(139, 92, 246, 0.2);
+}
+
+
+.category-emoji {
+    font-size: 30px;
+
+    margin-bottom: 10px;
+}
+
+
+.category-name {
+    font-size: 15px;
+
+    font-weight: 700;
+}
+
+
+.category-description {
+    color: #77778a;
+
+    font-size: 11px;
+
+    margin-top: 4px;
+}
+
+
+.check {
+    position: absolute;
+
+    top: 17px;
+
+    right: 17px;
+
+    width: 24px;
+    height: 24px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: #252538;
+
+    color: transparent;
+
+    font-size: 12px;
+
+    font-weight: 800;
+}
+
+
+.category-card.selected .check {
+    background: #8b5cf6;
+
+    color: white;
+}
+
+
+/* ================================
+   START BUTTON
+================================ */
+
+.start-game-button {
+    width: 100%;
+
+    margin-top: 25px;
+
+    padding: 16px;
+
+    border: none;
+
+    border-radius: 13px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #7c3aed,
+            #a855f7
+        );
+
+    color: white;
+
+    font-family: inherit;
+
+    font-size: 14px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 10px;
+
+    transition: 0.3s;
+}
+
+
+.start-game-button:not(:disabled):hover {
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 12px 30px
+        rgba(124, 58, 237, 0.25);
+}
+
+
+.start-game-button:disabled {
+    opacity: 0.35;
+
+    cursor: not-allowed;
+}
+
+
+/* ================================
+   MOBILE
+================================ */
+
+@media (max-width: 650px) {
+
+
+    .game-header {
+        padding: 18px;
+    }
+
+
+    main {
+        padding-top: 35px;
+    }
+
+
+    .category-container h1 {
+        font-size: 34px;
+    }
+
+
+    .subtitle {
+        font-size: 13px;
+    }
+
+
+    .category-grid {
+        grid-template-columns: 1fr;
+    }
+
+
+    .selection-header {
+        margin-top: 30px;
+    }
+
+}

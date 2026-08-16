@@ -1,0 +1,216 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>Online Play | PartyVerse</title>
+
+    <link
+        rel="stylesheet"
+        href="{% static 'game/online.css' %}">
+
+</head>
+
+
+<body>
+
+
+    <!-- =================================
+         BACKGROUND
+    ================================== -->
+
+    <div class="background-glow glow-one"></div>
+
+    <div class="background-glow glow-two"></div>
+
+
+
+    <!-- =================================
+         HEADER
+    ================================== -->
+
+    <header class="online-header">
+
+        <div class="logo">
+
+            🎭 PartyVerse
+
+        </div>
+
+
+        <a
+            href="{% url 'home' %}"
+            class="exit-button">
+
+            ← Home
+
+        </a>
+
+    </header>
+
+
+
+    <!-- =================================
+         MAIN
+    ================================== -->
+
+    <main>
+
+        <section class="online-screen">
+
+
+            <!-- ICON -->
+
+            <div class="online-icon">
+
+                🌐
+
+            </div>
+
+
+            <!-- TITLE -->
+
+            <div class="eyebrow">
+
+                ONLINE MULTIPLAYER
+
+            </div>
+
+
+            <h1>
+
+                Play With Friends
+
+            </h1>
+
+
+            <p class="subtitle">
+
+                Create a room or join your friends
+                using a room code.
+
+            </p>
+
+
+
+            <!-- =================================
+                 OPTIONS
+            ================================== -->
+
+            <div class="online-grid">
+
+
+                <!-- =================================
+                     CREATE ROOM
+                ================================== -->
+
+                <div class="online-card">
+
+
+                    <div class="card-icon">
+
+                        🎮
+
+                    </div>
+
+
+                    <h2>
+
+                        Create Room
+
+                    </h2>
+
+
+                    <p>
+
+                        Create a private room and
+                        invite your friends to play.
+
+                    </p>
+
+
+                    <a
+                        href="{% url 'create_room' %}"
+                        class="primary-action"
+                        style="
+                            display:block;
+                            text-decoration:none;
+                            text-align:center;
+                            margin-top:20px;
+                        ">
+
+                        Create Room →
+
+                    </a>
+
+
+                </div>
+
+
+
+                <!-- =================================
+                     JOIN ROOM
+                ================================== -->
+
+                <div class="online-card">
+
+
+                    <div class="card-icon">
+
+                        🔗
+
+                    </div>
+
+
+                    <h2>
+
+                        Join Room
+
+                    </h2>
+
+
+                    <p>
+
+                        Enter a room code and join
+                        your friends.
+
+                    </p>
+
+
+                    <a
+                        href="{% url 'join_room' %}"
+                        class="primary-action"
+                        style="
+                            display:block;
+                            text-decoration:none;
+                            text-align:center;
+                            margin-top:20px;
+                        ">
+
+                        Join Room →
+
+                    </a>
+
+
+                </div>
+
+
+            </div>
+
+
+        </section>
+
+    </main>
+
+
+</body>
+
+</html>

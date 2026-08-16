@@ -1,0 +1,425 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Decision Maker | PartyVerse</title>
+
+    <link rel="stylesheet"
+          href="{% static 'game/decision.css' %}">
+
+</head>
+
+<body>
+
+    <div class="background-glow glow-one"></div>
+    <div class="background-glow glow-two"></div>
+
+
+    <!-- ================================
+         HEADER
+    ================================= -->
+
+    <header class="decision-header">
+
+        <div class="logo">
+            PARTYVERSE
+        </div>
+
+        <button
+            class="exit-button"
+            onclick="window.location.href='/'">
+
+            EXIT
+
+        </button>
+
+    </header>
+
+
+    <!-- ================================
+         MAIN
+    ================================= -->
+
+    <main>
+
+        <section class="decision-screen">
+
+            <div class="decision-icon">
+                🎯
+            </div>
+
+            <div class="eyebrow">
+                DECISION MAKER
+            </div>
+
+            <h1>
+                Can't Decide?
+            </h1>
+
+            <p class="subtitle">
+                Let PartyVerse make the choice for you.
+            </p>
+
+
+            <!-- ================================
+                 OPTIONS
+            ================================= -->
+
+            <div class="options-container">
+
+                <div class="option-row">
+
+                    <input
+                        type="text"
+                        class="option-input"
+                        placeholder="Enter option 1"
+                        maxlength="50">
+
+                </div>
+
+
+                <div class="option-row">
+
+                    <input
+                        type="text"
+                        class="option-input"
+                        placeholder="Enter option 2"
+                        maxlength="50">
+
+                </div>
+
+
+            </div>
+
+
+            <!-- ================================
+                 ADD OPTION
+            ================================= -->
+
+            <button
+                id="addOptionButton"
+                class="secondary-action">
+
+                + Add Option
+
+            </button>
+
+
+            <!-- ================================
+                 DECIDE BUTTON
+            ================================= -->
+
+            <button
+                id="decideButton"
+                class="primary-action">
+
+                🎲 DECIDE FOR ME
+
+            </button>
+
+
+            <!-- ================================
+                 RESULT
+            ================================= -->
+
+            <div
+                id="resultBox"
+                class="result-box hidden">
+
+                <div class="result-label">
+                    PARTYVERSE CHOSE
+                </div>
+
+                <div
+                    id="resultText"
+                    class="result-text">
+                </div>
+
+                <button
+                    id="againButton"
+                    class="secondary-action">
+
+                    🔄 Decide Again
+
+                </button>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- ================================
+         JAVASCRIPT
+    ================================= -->
+
+    <script>
+
+        const optionsContainer =
+            document.getElementById(
+                "optionsContainer"
+            );
+
+
+        const addOptionButton =
+            document.getElementById(
+                "addOptionButton"
+            );
+
+
+        const decideButton =
+            document.getElementById(
+                "decideButton"
+            );
+
+
+        const resultBox =
+            document.getElementById(
+                "resultBox"
+            );
+
+
+        const resultText =
+            document.getElementById(
+                "resultText"
+            );
+
+
+        const againButton =
+            document.getElementById(
+                "againButton"
+            );
+
+
+        /*
+        =========================================
+        GET OPTIONS
+        =========================================
+        */
+
+        function getOptions() {
+
+            const inputs =
+                document.querySelectorAll(
+                    ".option-input"
+                );
+
+            const options = [];
+
+            inputs.forEach(
+                function(input) {
+
+                    const value =
+                        input.value.trim();
+
+                    if (value) {
+
+                        options.push(value);
+
+                    }
+
+                }
+            );
+
+            return options;
+
+        }
+
+
+        /*
+        =========================================
+        ADD OPTION
+        =========================================
+        */
+
+        addOptionButton.addEventListener(
+            "click",
+            function() {
+
+                const inputs =
+                    document.querySelectorAll(
+                        ".option-input"
+                    );
+
+                if (inputs.length >= 10) {
+
+                    alert(
+                        "You can add up to 10 options."
+                    );
+
+                    return;
+
+                }
+
+
+                const row =
+                    document.createElement(
+                        "div"
+                    );
+
+                row.className =
+                    "option-row";
+
+
+                const input =
+                    document.createElement(
+                        "input"
+                    );
+
+                input.type = "text";
+
+                input.className =
+                    "option-input";
+
+                input.placeholder =
+                    "Enter another option";
+
+                input.maxLength = 50;
+
+
+                row.appendChild(input);
+
+                document
+                    .querySelector(
+                        ".options-container"
+                    )
+                    .appendChild(row);
+
+            }
+        );
+
+
+        /*
+        =========================================
+        DECIDE
+        =========================================
+        */
+
+      decideButton.addEventListener(
+    "click",
+    function() {
+
+        const options =
+            getOptions();
+
+
+        if (options.length < 2) {
+
+            alert(
+                "Please enter at least 2 options."
+            );
+
+            return;
+
+        }
+
+
+        /*
+        =========================================
+        CHOOSING ANIMATION
+        =========================================
+        */
+
+        decideButton.disabled = true;
+
+        decideButton.textContent =
+            "🎲 Choosing...";
+
+        resultBox.classList.add(
+            "hidden"
+        );
+
+
+        setTimeout(
+            function() {
+
+                const randomIndex =
+                    Math.floor(
+                        Math.random() *
+                        options.length
+                    );
+
+
+                const winner =
+                    options[randomIndex];
+
+
+                resultText.textContent =
+                    winner;
+
+
+                resultBox.classList.remove(
+                    "hidden"
+                );
+
+
+                decideButton.disabled =
+                    false;
+
+                decideButton.textContent =
+                    "🎲 DECIDE FOR ME";
+
+
+            },
+            1000
+        );
+
+    }
+);
+
+
+        /*
+        =========================================
+        DECIDE AGAIN
+        =========================================
+        */
+
+        againButton.addEventListener(
+            "click",
+            function() {
+
+                resultBox.classList.add(
+                    "hidden"
+                );
+
+            }
+        );
+
+        /*
+=========================================
+ENTER KEY SUPPORT
+=========================================
+*/
+
+document.addEventListener(
+    "keydown",
+    function(event) {
+
+        if (
+            event.key === "Enter" &&
+            document.activeElement.classList.contains(
+                "option-input"
+            )
+        ) {
+
+            decideButton.click();
+
+        }
+
+    }
+);
+
+    </script>
+
+</body>
+
+</html>
