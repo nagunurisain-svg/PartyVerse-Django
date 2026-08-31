@@ -440,3 +440,37 @@ footer span {
         padding: 25px;
     }
 }
+
+/* =========================================
+   ACCOUNT BUTTONS
+========================================= */
+
+.welcome-user {
+    font-size: 14px;
+    font-weight: 600;
+    margin-left: 15px;
+    white-space: nowrap;
+}
+
+.account-button {
+    display: inline-block;
+    padding: 9px 16px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: 600;
+    margin-left: 8px;
+}
+
+.register-button {
+    border: 1px solid currentColor;
+}
+
+.custom-question-button {
+    display: block;
+    margin-top: 12px;
+    color: #c4b5fd;
+}
+
+.custom-question-button:hover {
+    color: white;
+}

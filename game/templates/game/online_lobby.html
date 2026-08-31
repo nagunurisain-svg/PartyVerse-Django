@@ -151,6 +151,27 @@
 
 
             <!-- =================================
+                 ASK YOUR OWN QUESTION
+            ================================= -->
+
+            <div class="custom-question-section">
+
+                <a
+                    href="{% url 'ask_question' %}"
+                    class="secondary-action custom-question-button">
+
+                    ✏️ Ask Your Own Question
+
+                </a>
+
+                <p class="custom-question-help">
+                    Create a Truth or Dare question for your game.
+                </p>
+
+            </div>
+
+
+            <!-- =================================
                  START GAME
             ================================= -->
 
@@ -559,48 +580,6 @@
 
             /*
             -------------------------------------
-            ONLINE CATEGORIES
-            -------------------------------------
-            */
-
-            const onlineCategories = [
-
-                "crazy",
-                "deep",
-                "fantasy",
-                "friendship",
-                "funny",
-                "horror",
-                "movies",
-                "music",
-                "random",
-                "school"
-
-            ];
-
-
-            sessionStorage.setItem(
-                "partyverse_categories",
-                JSON.stringify(
-                    onlineCategories
-                )
-            );
-
-
-            /*
-            -------------------------------------
-            DIFFICULTY
-            -------------------------------------
-            */
-
-            sessionStorage.setItem(
-                "partyverse_difficulty",
-                "mixed"
-            );
-
-
-            /*
-            -------------------------------------
             ROOM CODE
             -------------------------------------
             */
@@ -768,6 +747,35 @@
         }
 
     </script>
+
+
+    <!-- =========================================
+         CUSTOM QUESTION STYLE
+    ========================================= -->
+
+    <style>
+
+        .custom-question-section {
+            width: 100%;
+            margin: 20px 0;
+            text-align: center;
+        }
+
+        .custom-question-button {
+            display: block;
+            width: 100%;
+            padding: 15px 20px;
+            text-decoration: none;
+            text-align: center;
+        }
+
+        .custom-question-help {
+            margin-top: 8px;
+            color: #77778a;
+            font-size: 11px;
+        }
+
+    </style>
 
 </body>
 

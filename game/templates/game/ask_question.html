@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Ask Your Own - PartyVerse</title>
+
+    {% load static %}
+
+    <link
+        rel="stylesheet"
+        href="{% static 'game/css/ask_question.css' %}">
+
+</head>
+
+<body>
+
+<div class="question-page">
+
+    <div class="question-card">
+
+        <div class="logo">
+            🎭 PartyVerse
+        </div>
+
+        <h1>
+            Ask Your Own Question
+        </h1>
+
+        <p class="subtitle">
+            Create a Truth or Dare for your friends!
+        </p>
+
+
+        {% if error %}
+
+        <div class="error-message">
+            {{ error }}
+        </div>
+
+        {% endif %}
+
+
+        <form method="POST">
+
+            {% csrf_token %}
+
+
+            <!-- QUESTION TYPE -->
+
+            <label>
+                Choose Type
+            </label>
+
+            <div class="type-options">
+
+                <label class="type-option">
+
+                    <input
+                        type="radio"
+                        name="question_type"
+                        value="truth"
+                        required
+                    >
+
+                    <span>
+                        💬 Truth
+                    </span>
+
+                </label>
+
+
+                <label class="type-option">
+
+                    <input
+                        type="radio"
+                        name="question_type"
+                        value="dare"
+                    >
+
+                    <span>
+                        🎯 Dare
+                    </span>
+
+                </label>
+
+            </div>
+
+
+            <!-- CATEGORY -->
+
+            <label for="category">
+                Choose Category
+            </label>
+
+            <select
+                id="category"
+                name="category"
+                required>
+
+                <option value="">
+                    Select a category
+                </option>
+
+                <option value="funny">
+                    Funny
+                </option>
+
+                <option value="fantasy">
+                    Fantasy
+                </option>
+
+                <option value="crazy">
+                    Crazy
+                </option>
+
+                <option value="friendship">
+                    Friendship
+                </option>
+
+                <option value="deep">
+                    Deep
+                </option>
+
+                <option value="horror">
+                    Horror
+                </option>
+
+                <option value="movies">
+                    Movies
+                </option>
+
+                <option value="music">
+                    Music
+                </option>
+
+                <option value="school">
+                    School / College
+                </option>
+
+                <option value="random">
+                    Random
+                </option>
+
+            </select>
+
+
+            <!-- DIFFICULTY -->
+
+            <label for="difficulty">
+                Choose Difficulty
+            </label>
+
+            <select
+                id="difficulty"
+                name="difficulty"
+                required>
+
+                <option value="">
+                    Select difficulty
+                </option>
+
+                <option value="easy">
+                    Easy
+                </option>
+
+                <option value="medium">
+                    Medium
+                </option>
+
+                <option value="hard">
+                    Hard
+                </option>
+
+            </select>
+
+
+            <!-- QUESTION -->
+
+            <label for="text">
+                Your Question
+            </label>
+
+            <textarea
+                id="text"
+                name="text"
+                rows="5"
+                maxlength="500"
+                placeholder="Write your Truth or Dare..."
+                required></textarea>
+
+
+            <button
+                type="submit"
+                class="submit-button">
+
+                Add Question ✨
+
+            </button>
+
+        </form>
+
+
+        <div class="actions">
+
+            <a href="{% url 'profile' %}">
+                ← Back to Profile
+            </a>
+
+            <a href="{% url 'home' %}">
+                Home
+            </a>
+
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+
+</html>

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>My Profile - PartyVerse</title>
+
+    {% load static %}
+
+    <link
+        rel="stylesheet"
+        href="{% static 'game/css/profile.css' %}">
+
+</head>
+
+<body>
+
+<div class="profile-page">
+
+    <div class="profile-card">
+
+        <div class="profile-logo">
+            🎭 PartyVerse
+        </div>
+
+        <div class="avatar">
+            👤
+        </div>
+
+        <h1>
+            {{ request.user.first_name|default:request.user.username }}
+        </h1>
+
+        <p class="profile-subtitle">
+            PartyVerse Player
+        </p>
+
+
+        <div class="profile-info">
+
+            <div class="info-row">
+                <span>📧 Email</span>
+                <strong>{{ request.user.email }}</strong>
+            </div>
+
+            <div class="info-row">
+                <span>📱 Mobile</span>
+                <strong>{{ profile.mobile_number }}</strong>
+            </div>
+
+            <div class="info-row">
+                <span>📅 Joined</span>
+                <strong>{{ profile.created_at|date:"d M Y" }}</strong>
+            </div>
+
+        </div>
+
+
+        <div class="stats">
+
+            <div class="stat">
+
+                <strong>
+                    {{ profile.games_played }}
+                </strong>
+
+                <span>
+                    Games Played
+                </span>
+
+            </div>
+
+
+            <div class="stat">
+
+                <strong>
+                    {{ profile.questions_answered }}
+                </strong>
+
+                <span>
+                    Questions Answered
+                </span>
+
+            </div>
+
+
+            <div class="stat">
+
+                <strong>
+                    {{ profile.xp }}
+                </strong>
+
+                <span>
+                    XP
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================
+             PROFILE ACTIONS
+        ================================= -->
+
+        <div class="profile-actions">
+
+            <a href="{% url 'ask_question' %}">
+                ✏️ Ask Your Own Question
+            </a>
+
+            <a href="{% url 'home' %}">
+                ← Back to PartyVerse
+            </a>
+
+            <a href="{% url 'logout' %}">
+                Logout
+            </a>
+
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+
+</html>

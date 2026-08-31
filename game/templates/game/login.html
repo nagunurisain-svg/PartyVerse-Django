@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Login - PartyVerse</title>
+
+    {% load static %}
+
+    <link rel="stylesheet"
+          href="{% static 'game/css/login.css' %}">
+
+</head>
+
+<body>
+
+<div class="login-page">
+
+    <div class="login-card">
+
+        <div class="logo">
+            🎉 PartyVerse
+        </div>
+
+        <h1>Welcome Back!</h1>
+
+        <p class="subtitle">
+            Login to continue playing
+        </p>
+
+
+        {% if error %}
+
+        <div class="error-message">
+            {{ error }}
+        </div>
+
+        {% endif %}
+
+
+        <form method="POST">
+
+            {% csrf_token %}
+
+
+            <div class="form-group">
+
+                <label for="login">
+                    Email or Mobile Number
+                </label>
+
+                <input
+                    type="text"
+                    id="login"
+                    name="login"
+                    placeholder="Enter email or mobile number"
+                    autocomplete="username"
+                    required
+                >
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="password">
+                    Password
+                </label>
+
+                <input
+                    type="password"
+                    id="password"
+                    name="password"
+                    placeholder="Enter your password"
+                    autocomplete="current-password"
+                    required
+                >
+
+            </div>
+
+
+            <button
+                type="submit"
+                class="login-button">
+
+                Login
+
+            </button>
+
+        </form>
+
+
+        <div class="register-link">
+
+            Don't have an account?
+
+            <a href="{% url 'register' %}">
+                Create Account
+            </a>
+
+        </div>
+
+
+        <div class="back-link">
+
+            <a href="{% url 'home' %}">
+                ← Back to PartyVerse
+            </a>
+
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+
+</html>

@@ -66,19 +66,49 @@
 
         <nav>
 
-            <a href="#home">
-                Home
-            </a>
+    <a href="#home">
+        Home
+    </a>
 
-            <a href="#games">
-                Games
-            </a>
+    <a href="#games">
+        Games
+    </a>
 
-            <a href="#about">
-                About
-            </a>
+    <a href="#about">
+        About
+    </a>
 
-        </nav>
+    {% if user.is_authenticated %}
+
+    <span class="welcome-user">
+        Hi, {{ user.first_name|default:user.username }} 👋
+    </span>
+
+    <a
+        href="{% url 'profile' %}"
+        class="account-button">
+        Profile
+    </a>
+
+    <a
+        href="{% url 'logout' %}"
+        class="account-button">
+        Logout
+    </a>
+
+    {% else %}
+
+        <a href="{% url 'login' %}" class="account-button">
+            Login
+        </a>
+
+        <a href="{% url 'register' %}" class="account-button register-button">
+            Create Account
+        </a>
+
+    {% endif %}
+
+</nav>
 
     </header>
 
@@ -230,6 +260,18 @@
                             Play Now →
 
                         </a>
+
+                        {% if user.is_authenticated %}
+
+    <a
+        href="{% url 'ask_question' %}"
+        class="game-button custom-question-button">
+
+        ✏️ Ask Your Own Question →
+
+    </a>
+
+{% endif %}
 
 
                     </div>
