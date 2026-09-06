@@ -66,49 +66,65 @@
 
         <nav>
 
-    <a href="#home">
-        Home
-    </a>
+            <a href="#home">
+                Home
+            </a>
 
-    <a href="#games">
-        Games
-    </a>
+            <a href="#games">
+                Games
+            </a>
 
-    <a href="#about">
-        About
-    </a>
+            <a href="#about">
+                About
+            </a>
 
-    {% if user.is_authenticated %}
 
-    <span class="welcome-user">
-        Hi, {{ user.first_name|default:user.username }} 👋
-    </span>
+            {% if user.is_authenticated %}
 
-    <a
-        href="{% url 'profile' %}"
-        class="account-button">
-        Profile
-    </a>
+                <span class="welcome-user">
+                    Hi, {{ user.first_name|default:user.username }} 👋
+                </span>
 
-    <a
-        href="{% url 'logout' %}"
-        class="account-button">
-        Logout
-    </a>
 
-    {% else %}
+                <a
+                    href="{% url 'profile' %}"
+                    class="account-button">
 
-        <a href="{% url 'login' %}" class="account-button">
-            Login
-        </a>
+                    Profile
 
-        <a href="{% url 'register' %}" class="account-button register-button">
-            Create Account
-        </a>
+                </a>
 
-    {% endif %}
 
-</nav>
+                <a
+                    href="{% url 'logout' %}"
+                    class="account-button">
+
+                    Logout
+
+                </a>
+
+            {% else %}
+
+                <a
+                    href="{% url 'login' %}"
+                    class="account-button">
+
+                    Login
+
+                </a>
+
+
+                <a
+                    href="{% url 'register' %}"
+                    class="account-button register-button">
+
+                    Create Account
+
+                </a>
+
+            {% endif %}
+
+        </nav>
 
     </header>
 
@@ -250,9 +266,6 @@
                         </p>
 
 
-                        <!-- IMPORTANT:
-                             Django URL is connected here -->
-
                         <a
                             href="{% url 'truth_or_dare' %}"
                             class="game-button">
@@ -261,60 +274,24 @@
 
                         </a>
 
+
                         {% if user.is_authenticated %}
 
-    <a
-        href="{% url 'ask_question' %}"
-        class="game-button custom-question-button">
+                            <a
+                                href="{% url 'ask_question' %}"
+                                class="game-button custom-question-button">
 
-        ✏️ Ask Your Own Question →
+                                ✏️ Ask Your Own Question →
 
-    </a>
+                            </a>
 
-{% endif %}
+                        {% endif %}
 
 
                     </div>
 
 
                 </div>
-
-                <!-- =================================
-     ONLINE MULTIPLAYER
-================================= -->
-
-<div class="game-card online-card">
-
-    <div class="game-icon">
-        🌐
-    </div>
-
-    <div class="game-content">
-
-        <span class="game-label">
-            MULTIPLAYER
-        </span>
-
-        <h3>
-            Online Play
-        </h3>
-
-        <p>
-            Create a room or join your friends
-            and play Truth or Dare together online.
-        </p>
-
-        <a
-            href="{% url 'online_play' %}"
-            class="game-button">
-
-            Play Online →
-
-        </a>
-
-    </div>
-
-</div>
 
 
 
@@ -326,7 +303,7 @@
 
 
                     <div class="game-icon">
-                        🎲
+                        🎯
                     </div>
 
 
@@ -351,8 +328,6 @@
 
                         </p>
 
-
-                        <!-- Django URL connected -->
 
                         <a
                             href="{% url 'decision_maker' %}"

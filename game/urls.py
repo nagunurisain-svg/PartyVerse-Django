@@ -41,29 +41,6 @@ urlpatterns = [
     ),
 
 path(
-    "online-play/",
-    views.online_play,
-    name="online_play"
-),
-
-path(
-    "online-play/create/",
-    views.create_room,
-    name="create_room"
-),
-
-path(
-    "online-play/join/",
-    views.join_room,
-    name="join_room"
-),
-
-path(
-    "online-play/room/<str:room_code>/",
-    views.online_lobby,
-    name="online_lobby"
-),
-path(
     "register/",
       views.register, 
       name="register"
